@@ -1,19 +1,1017 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body {
-            background-color: black;
-        }
-        h2{
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Safi Rehman – Laravel Developer crafting scalable web apps, REST APIs, and full-stack solutions. Available for freelance work." />
+  <meta name="keywords" content="Laravel Developer, PHP Developer, Full Stack Developer, REST API, Freelance Developer, Safi Rehman" />
+  <meta name="author" content="Safi Rehman" />
+  <meta property="og:title" content="Safi Rehman | Laravel Developer" />
+  <meta property="og:description" content="Laravel Developer building scalable web apps & REST APIs." />
+  <title>Safi Rehman | Laravel Developer</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h2>Hello World!</h2>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#home">
+      <span class="brand-dot">&lt;</span>Safi<span class="brand-accent">Rehman</span><span class="brand-dot">/&gt;</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="hamburger-icon"><span></span><span></span><span></span></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#github">GitHub</a></li>
+        <li class="nav-item"><a class="nav-link nav-cta" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="hero-section">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+      <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="900">
+        <div class="hero-badge mb-3"><span class="badge-dot"></span> Available for Freelance</div>
+        <h1 class="hero-heading">Hi, I'm<br/><span class="name-highlight">Safi Rehman</span></h1>
+        <div class="hero-typed-wrapper">
+          <span class="typed-prefix">I build → </span>
+          <span id="typed-text" class="typed-text"></span><span class="typed-cursor">|</span>
+        </div>
+        <p class="hero-desc">
+          Laravel Developer with internship experience building scalable web applications, CRUD systems, REST APIs and authentication systems. Passionate about creating modern web solutions and continuously learning new technologies.
+        </p>
+        <div class="hero-btns d-flex flex-wrap gap-3 mt-4">
+          <a href="#projects" class="btn btn-primary-custom">View Projects <i class="bi bi-arrow-right-circle ms-1"></i></a>
+          <a href="#contact" class="btn btn-hire">Hire Me <i class="bi bi-briefcase ms-1"></i></a>
+          <a href="https://github.com" target="_blank" class="btn btn-github-hero"><i class="bi bi-github me-1"></i> GitHub</a>
+        </div>
+        <div class="hero-stats d-flex gap-4 mt-5">
+          <div class="hero-stat"><span class="stat-num">10+</span><span class="stat-label">Projects</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="stat-num">5+</span><span class="stat-label">Technologies</span></div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat"><span class="stat-num">1+</span><span class="stat-label">Year Exp</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
+        <div class="hero-illustration-wrapper">
+          <div class="hero-card-glow"></div>
+          <div class="hero-avatar-card">
+            <div class="hero-avatar-bg">
+              <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="hero-svg-illustration">
+                <!-- Monitor -->
+                <rect x="60" y="80" width="280" height="190" rx="14" fill="#0f1728" stroke="#00e5ff" stroke-width="2"/>
+                <rect x="75" y="95" width="250" height="160" rx="8" fill="#060d1f"/>
+                <!-- Code lines -->
+                <rect x="90" y="115" width="60" height="6" rx="3" fill="#00e5ff" opacity="0.9"/>
+                <rect x="160" y="115" width="100" height="6" rx="3" fill="#7c3aed" opacity="0.7"/>
+                <rect x="90" y="132" width="30" height="5" rx="2.5" fill="#e879f9" opacity="0.8"/>
+                <rect x="128" y="132" width="80" height="5" rx="2.5" fill="#00e5ff" opacity="0.5"/>
+                <rect x="90" y="148" width="50" height="5" rx="2.5" fill="#34d399" opacity="0.7"/>
+                <rect x="148" y="148" width="110" height="5" rx="2.5" fill="#60a5fa" opacity="0.6"/>
+                <rect x="90" y="165" width="70" height="5" rx="2.5" fill="#00e5ff" opacity="0.8"/>
+                <rect x="168" y="165" width="50" height="5" rx="2.5" fill="#fbbf24" opacity="0.7"/>
+                <rect x="90" y="182" width="40" height="5" rx="2.5" fill="#e879f9" opacity="0.6"/>
+                <rect x="138" y="182" width="90" height="5" rx="2.5" fill="#34d399" opacity="0.5"/>
+                <rect x="90" y="199" width="80" height="5" rx="2.5" fill="#60a5fa" opacity="0.7"/>
+                <rect x="90" y="216" width="55" height="5" rx="2.5" fill="#00e5ff" opacity="0.6"/>
+                <rect x="153" y="216" width="75" height="5" rx="2.5" fill="#7c3aed" opacity="0.5"/>
+                <rect x="90" y="233" width="35" height="5" rx="2.5" fill="#fbbf24" opacity="0.8"/>
+                <!-- Cursor blink -->
+                <rect x="235" y="233" width="3" height="10" rx="1" fill="#00e5ff" class="svg-cursor"/>
+                <!-- Monitor stand -->
+                <rect x="185" y="270" width="30" height="20" rx="4" fill="#0f1728" stroke="#1a2845" stroke-width="1"/>
+                <rect x="160" y="288" width="80" height="8" rx="4" fill="#0f1728" stroke="#1a2845" stroke-width="1"/>
+                <!-- Floating badges -->
+                <g transform="translate(300,100)">
+                  <rect x="0" y="0" width="75" height="28" rx="14" fill="#00e5ff22" stroke="#00e5ff" stroke-width="1"/>
+                  <text x="12" y="18" font-family="monospace" font-size="11" fill="#00e5ff">Laravel</text>
+                </g>
+                <g transform="translate(20,160)">
+                  <rect x="0" y="0" width="55" height="28" rx="14" fill="#7c3aed22" stroke="#7c3aed" stroke-width="1"/>
+                  <text x="10" y="18" font-family="monospace" font-size="11" fill="#a78bfa">PHP</text>
+                </g>
+                <g transform="translate(310,220)">
+                  <rect x="0" y="0" width="60" height="28" rx="14" fill="#34d39922" stroke="#34d399" stroke-width="1"/>
+                  <text x="8" y="18" font-family="monospace" font-size="11" fill="#34d399">MySQL</text>
+                </g>
+                <g transform="translate(15,280)">
+                  <rect x="0" y="0" width="55" height="28" rx="14" fill="#fbbf2422" stroke="#fbbf24" stroke-width="1"/>
+                  <text x="8" y="18" font-family="monospace" font-size="11" fill="#fbbf24">API</text>
+                </g>
+              </svg>
+            </div>
+            <!-- Tech orbit -->
+            <div class="orbit-ring">
+              <div class="orbit-icon orbit-php"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP"/></div>
+              <div class="orbit-icon orbit-laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel"/></div>
+              <div class="orbit-icon orbit-mysql"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"/></div>
+              <div class="orbit-icon orbit-js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-arrow"><i class="bi bi-chevron-down"></i></div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">Who Am I</span>
+      <h2 class="section-title">About <span class="accent">Me</span></h2>
+    </div>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right" data-aos-duration="800">
+        <div class="about-image-wrapper">
+          <div class="about-img-card">
+            <div class="about-img-inner">
+              <svg viewBox="0 0 320 380" xmlns="http://www.w3.org/2000/svg" width="100%">
+                <!-- Person silhouette -->
+                <defs>
+                  <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:0.3"/>
+                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0.3"/>
+                  </linearGradient>
+                  <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#1a2845"/>
+                    <stop offset="100%" style="stop-color:#0d1b36"/>
+                  </linearGradient>
+                </defs>
+                <rect width="320" height="380" rx="16" fill="url(#bodyGrad)"/>
+                <!-- Head -->
+                <circle cx="160" cy="120" r="65" fill="#1e3058" stroke="#00e5ff" stroke-width="1.5"/>
+                <circle cx="160" cy="115" r="48" fill="#2a4070"/>
+                <!-- Face features -->
+                <circle cx="144" cy="108" r="6" fill="#060d1f"/>
+                <circle cx="176" cy="108" r="6" fill="#060d1f"/>
+                <circle cx="146" cy="106" r="2.5" fill="#00e5ff" opacity="0.8"/>
+                <circle cx="178" cy="106" r="2.5" fill="#00e5ff" opacity="0.8"/>
+                <path d="M148,128 Q160,140 172,128" stroke="#00e5ff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <!-- Hair -->
+                <path d="M112,105 Q115,65 160,60 Q205,65 208,105 Q200,75 160,72 Q120,75 112,105Z" fill="#0f1728"/>
+                <!-- Body -->
+                <path d="M80,210 Q80,185 160,180 Q240,185 240,210 L250,370 Q160,380 70,370Z" fill="#1a2845"/>
+                <!-- Collar/shirt -->
+                <path d="M135,180 L160,210 L185,180 Q175,185 160,188 Q145,185 135,180Z" fill="#060d1f"/>
+                <!-- Laptop in hands -->
+                <rect x="100" y="280" width="120" height="70" rx="8" fill="#0f1728" stroke="#00e5ff" stroke-width="1.5"/>
+                <rect x="108" y="288" width="104" height="54" rx="5" fill="#060d1f"/>
+                <!-- Screen glow code lines -->
+                <rect x="115" y="298" width="50" height="4" rx="2" fill="#00e5ff" opacity="0.7"/>
+                <rect x="115" y="308" width="35" height="4" rx="2" fill="#a78bfa" opacity="0.6"/>
+                <rect x="115" y="318" width="60" height="4" rx="2" fill="#34d399" opacity="0.6"/>
+                <rect x="115" y="328" width="40" height="4" rx="2" fill="#00e5ff" opacity="0.5"/>
+                <!-- Decoration dots -->
+                <circle cx="30" cy="30" r="4" fill="#00e5ff" opacity="0.4"/>
+                <circle cx="290" cy="350" r="4" fill="#7c3aed" opacity="0.4"/>
+                <circle cx="290" cy="30" r="6" fill="#00e5ff" opacity="0.2"/>
+                <!-- Corner frame accents -->
+                <path d="M10,10 L10,35 M10,10 L35,10" stroke="#00e5ff" stroke-width="2" fill="none"/>
+                <path d="M310,10 L310,35 M310,10 L285,10" stroke="#00e5ff" stroke-width="2" fill="none"/>
+                <path d="M10,370 L10,345 M10,370 L35,370" stroke="#7c3aed" stroke-width="2" fill="none"/>
+                <path d="M310,370 L310,345 M310,370 L285,370" stroke="#7c3aed" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <div class="about-experience-badge">
+              <span class="exp-num">1+</span>
+              <span class="exp-text">Year<br/>Experience</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+        <div class="about-content">
+          <h3 class="about-title">Passionate <span class="accent">Laravel Developer</span> &amp; Full Stack Learner</h3>
+          <p class="about-text">
+            I'm Safi Rehman, a dedicated Laravel Developer with hands-on internship experience in building real-world web applications. I specialize in crafting scalable, secure, and high-performance backend systems using <strong class="accent">Laravel & PHP</strong>.
+          </p>
+          <p class="about-text">
+            My expertise spans CRUD applications, REST API development, authentication systems, and multi-vendor platforms. I'm currently expanding my skills into <strong class="accent">Vue.js</strong> and modern full-stack development to deliver complete web solutions.
+          </p>
+          <div class="about-highlights row g-3 mt-3">
+            <div class="col-sm-6">
+              <div class="highlight-item"><i class="bi bi-check-circle-fill accent"></i> Laravel & PHP Expert</div>
+            </div>
+            <div class="col-sm-6">
+              <div class="highlight-item"><i class="bi bi-check-circle-fill accent"></i> REST API Development</div>
+            </div>
+            <div class="col-sm-6">
+              <div class="highlight-item"><i class="bi bi-check-circle-fill accent"></i> Authentication Systems</div>
+            </div>
+            <div class="col-sm-6">
+              <div class="highlight-item"><i class="bi bi-check-circle-fill accent"></i> CRUD Applications</div>
+            </div>
+            <div class="col-sm-6">
+              <div class="highlight-item"><i class="bi bi-check-circle-fill accent"></i> MySQL Database Design</div>
+            </div>
+            <div class="col-sm-6">
+              <div class="highlight-item"><i class="bi bi-check-circle-fill accent"></i> Learning Vue.js</div>
+            </div>
+          </div>
+          <div class="about-actions d-flex flex-wrap gap-3 mt-4">
+            <a href="#contact" class="btn btn-primary-custom">Let's Work Together</a>
+            <a href="#projects" class="btn btn-outline-custom">View My Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section id="skills" class="section-padding skills-bg">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">Expertise</span>
+      <h2 class="section-title">My <span class="accent">Skills</span></h2>
+      <p class="section-subtitle">Technologies I work with to deliver modern web solutions</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+
+      <!-- Skill Card -->
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="0">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" alt="Laravel" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">Laravel</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+          <span class="skill-pct">90%</span>
+          <div class="skill-hover-overlay"><span>Backend Framework</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="60">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg" alt="PHP" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">PHP</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+          <span class="skill-pct">88%</span>
+          <div class="skill-hover-overlay"><span>Server Side Language</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="120">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">MySQL</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
+          <span class="skill-pct">82%</span>
+          <div class="skill-hover-overlay"><span>Database Management</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="180">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">Bootstrap</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+          <span class="skill-pct">85%</span>
+          <div class="skill-hover-overlay"><span>CSS Framework</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="240">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">JavaScript</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+          <span class="skill-pct">75%</span>
+          <div class="skill-hover-overlay"><span>Frontend Scripting</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">Git</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+          <span class="skill-pct">80%</span>
+          <div class="skill-hover-overlay"><span>Version Control</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="360">
+        <div class="skill-card skill-learning">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">Vue.js</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="45"></div></div>
+          <span class="skill-pct">45%</span>
+          <div class="skill-hover-overlay"><span>Currently Learning 🚀</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="420">
+        <div class="skill-card skill-learning">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">React.js</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="40"></div></div>
+          <span class="skill-pct">40%</span>
+          <div class="skill-hover-overlay"><span>Currently Learning 🚀</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="480">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">HTML5</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+          <span class="skill-pct">92%</span>
+          <div class="skill-hover-overlay"><span>Markup Language</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="540">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon"/>
+          </div>
+          <h5 class="skill-name">CSS3</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+          <span class="skill-pct">85%</span>
+          <div class="skill-hover-overlay"><span>Styling & Animations</span></div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="600">
+        <div class="skill-card">
+          <div class="skill-icon-wrap">
+            <i class="bi bi-hdd-stack-fill skill-icon-bi"></i>
+          </div>
+          <h5 class="skill-name">REST APIs</h5>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="83"></div></div>
+          <span class="skill-pct">83%</span>
+          <div class="skill-hover-overlay"><span>API Architecture</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATISTICS ===================== -->
+<section id="stats" class="stats-section section-padding">
+  <div class="container">
+    <div class="row g-4 justify-content-center text-center">
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="0">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="bi bi-folder2-open"></i></div>
+          <div class="stat-counter" data-target="10">0</div>
+          <div class="stat-plus">+</div>
+          <p class="stat-label">Projects Completed</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="100">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="bi bi-cpu"></i></div>
+          <div class="stat-counter" data-target="11">0</div>
+          <div class="stat-plus">+</div>
+          <p class="stat-label">Technologies Learned</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="200">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="bi bi-buildings"></i></div>
+          <div class="stat-counter" data-target="1">0</div>
+          <div class="stat-plus">+</div>
+          <p class="stat-label">Year Internship Exp.</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="bi bi-github"></i></div>
+          <div class="stat-counter" data-target="20">0</div>
+          <div class="stat-plus">+</div>
+          <p class="stat-label">GitHub Repositories</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section id="projects" class="section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">Portfolio</span>
+      <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+      <p class="section-subtitle">Real-world applications built with modern technologies</p>
+    </div>
+    <div class="row g-4">
+
+      <!-- PROJECT 1 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="project-card" onclick="openProjectModal(0)">
+          <div class="project-img-wrap">
+            <div class="project-placeholder project-placeholder-1">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="220" fill="#0d1b36"/>
+                <!-- Shopping UI mockup -->
+                <rect x="0" y="0" width="120" height="220" fill="#0a1528"/>
+                <rect x="10" y="20" width="100" height="30" rx="5" fill="#00e5ff15" stroke="#00e5ff40" stroke-width="1"/>
+                <rect x="20" y="28" width="50" height="6" rx="3" fill="#00e5ff" opacity="0.6"/>
+                <rect x="20" y="40" width="35" height="4" rx="2" fill="#ffffff30"/>
+                <rect x="10" y="60" width="100" height="25" rx="5" fill="#1a2845"/>
+                <rect x="18" y="68" width="40" height="4" rx="2" fill="#ffffff50"/>
+                <rect x="18" y="76" width="25" height="3" rx="1.5" fill="#00e5ff40"/>
+                <rect x="10" y="92" width="100" height="25" rx="5" fill="#1a2845" opacity="0.6"/>
+                <rect x="18" y="100" width="55" height="4" rx="2" fill="#ffffff30"/>
+                <rect x="10" y="124" width="100" height="25" rx="5" fill="#1a2845" opacity="0.4"/>
+                <!-- Main area -->
+                <rect x="130" y="10" width="260" height="40" rx="6" fill="#0f1f3d"/>
+                <rect x="140" y="20" width="80" height="8" rx="4" fill="#00e5ff" opacity="0.7"/>
+                <rect x="330" y="18" width="50" height="12" rx="6" fill="#00e5ff"/>
+                <text x="336" y="28" font-size="8" fill="#000" font-family="monospace" font-weight="bold">+Add</text>
+                <!-- Product grid -->
+                <rect x="130" y="60" width="120" height="70" rx="8" fill="#1a2845"/>
+                <rect x="140" y="68" width="100" height="35" rx="4" fill="#2a3f6f"/>
+                <rect x="140" y="110" width="60" height="5" rx="2.5" fill="#ffffff50"/>
+                <rect x="140" y="120" width="40" height="4" rx="2" fill="#00e5ff60"/>
+                <rect x="260" y="60" width="120" height="70" rx="8" fill="#1a2845"/>
+                <rect x="270" y="68" width="100" height="35" rx="4" fill="#2a3f6f"/>
+                <rect x="270" y="110" width="60" height="5" rx="2.5" fill="#ffffff50"/>
+                <rect x="270" y="120" width="40" height="4" rx="2" fill="#00e5ff60"/>
+                <rect x="130" y="140" width="120" height="70" rx="8" fill="#1a2845" opacity="0.7"/>
+                <rect x="260" y="140" width="120" height="70" rx="8" fill="#1a2845" opacity="0.7"/>
+                <!-- Top overlay text -->
+                <text x="200" y="175" text-anchor="middle" font-size="14" fill="#00e5ff" opacity="0.15" font-family="monospace" font-weight="bold">ECOMMERCE VENDOR SYSTEM</text>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <span class="project-view-btn"><i class="bi bi-eye"></i> View Details</span>
+            </div>
+            <div class="project-badge">Featured</div>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-badges">
+              <span class="tech-badge badge-laravel">Laravel</span>
+              <span class="tech-badge badge-mysql">MySQL</span>
+              <span class="tech-badge badge-bootstrap">Bootstrap</span>
+            </div>
+            <h4 class="project-title">Ecommerce Vendor System</h4>
+            <p class="project-desc">A complete multi-vendor ecommerce platform where vendors manage products and users purchase online with a full admin panel.</p>
+            <div class="project-features">
+              <span><i class="bi bi-check2"></i> Multi Vendor</span>
+              <span><i class="bi bi-check2"></i> Admin Panel</span>
+              <span><i class="bi bi-check2"></i> Order System</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-project-sm" onclick="event.stopPropagation(); openProjectModal(0)"><i class="bi bi-info-circle"></i> Details</button>
+              <a href="https://github.com" target="_blank" class="btn-project-sm" onclick="event.stopPropagation()"><i class="bi bi-github"></i> GitHub</a>
+              <a href="#" class="btn-project-sm btn-demo" onclick="event.stopPropagation()"><i class="bi bi-play-circle"></i> Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="project-card" onclick="openProjectModal(1)">
+          <div class="project-img-wrap">
+            <div class="project-placeholder project-placeholder-2">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="220" fill="#0d1b36"/>
+                <!-- LMS UI mockup -->
+                <rect x="0" y="0" width="400" height="45" fill="#0a1528"/>
+                <rect x="15" y="15" width="80" height="16" rx="8" fill="#7c3aed"/>
+                <text x="25" y="26" font-size="9" fill="white" font-family="monospace" font-weight="bold">LMS Portal</text>
+                <rect x="280" y="14" width="50" height="16" rx="8" fill="#00e5ff20" stroke="#00e5ff40" stroke-width="1"/>
+                <text x="291" y="25" font-size="8" fill="#00e5ff" font-family="monospace">Student</text>
+                <rect x="340" y="14" width="45" height="16" rx="8" fill="#00e5ff"/>
+                <text x="349" y="25" font-size="8" fill="#000" font-family="monospace" font-weight="bold">Login</text>
+                <!-- Course cards -->
+                <rect x="10" y="55" width="115" height="75" rx="8" fill="#1a2845"/>
+                <rect x="10" y="55" width="115" height="40" rx="8" fill="#7c3aed40"/>
+                <text x="68" y="80" text-anchor="middle" font-size="18" fill="#7c3aed">🎓</text>
+                <rect x="20" y="102" width="60" height="5" rx="2.5" fill="#ffffff50"/>
+                <rect x="20" y="112" width="40" height="4" rx="2" fill="#7c3aed60"/>
+                <rect x="135" y="55" width="115" height="75" rx="8" fill="#1a2845"/>
+                <rect x="135" y="55" width="115" height="40" rx="8" fill="#00e5ff20"/>
+                <text x="193" y="80" text-anchor="middle" font-size="18" fill="#00e5ff">📹</text>
+                <rect x="145" y="102" width="70" height="5" rx="2.5" fill="#ffffff50"/>
+                <rect x="145" y="112" width="45" height="4" rx="2" fill="#00e5ff40"/>
+                <rect x="260" y="55" width="130" height="155" rx="8" fill="#0f1f3d"/>
+                <rect x="270" y="65" width="110" height="6" rx="3" fill="#ffffff30"/>
+                <rect x="270" y="78" width="80" height="6" rx="3" fill="#7c3aed60"/>
+                <rect x="270" y="91" width="90" height="6" rx="3" fill="#ffffff20"/>
+                <rect x="270" y="110" width="110" height="35" rx="6" fill="#7c3aed30" stroke="#7c3aed60" stroke-width="1"/>
+                <text x="325" y="131" text-anchor="middle" font-size="9" fill="#a78bfa" font-family="monospace">Continue Course →</text>
+                <rect x="270" y="155" width="110" height="4" rx="2" fill="#7c3aed40"/>
+                <rect x="270" y="165" width="80" height="4" rx="2" fill="#7c3aed30"/>
+                <!-- Quiz indicator -->
+                <rect x="10" y="140" width="115" height="70" rx="8" fill="#1a2845" opacity="0.7"/>
+                <text x="68" y="170" text-anchor="middle" font-size="10" fill="#fbbf24" font-family="monospace">📝 Quiz</text>
+                <rect x="20" y="178" width="90" height="4" rx="2" fill="#fbbf2440"/>
+                <rect x="135" y="140" width="115" height="70" rx="8" fill="#1a2845" opacity="0.7"/>
+                <text x="193" y="170" text-anchor="middle" font-size="10" fill="#34d399" font-family="monospace">✅ Progress</text>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <span class="project-view-btn"><i class="bi bi-eye"></i> View Details</span>
+            </div>
+            <div class="project-badge badge-purple">Full Stack</div>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-badges">
+              <span class="tech-badge badge-laravel">Laravel</span>
+              <span class="tech-badge badge-react">React JS</span>
+              <span class="tech-badge badge-mysql">MySQL</span>
+            </div>
+            <h4 class="project-title">Learning Management System</h4>
+            <p class="project-desc">Complete LMS platform with React frontend and Laravel backend featuring course management, video lessons and quiz system.</p>
+            <div class="project-features">
+              <span><i class="bi bi-check2"></i> Course Mgmt</span>
+              <span><i class="bi bi-check2"></i> Video Lessons</span>
+              <span><i class="bi bi-check2"></i> Quiz System</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-project-sm" onclick="event.stopPropagation(); openProjectModal(1)"><i class="bi bi-info-circle"></i> Details</button>
+              <a href="https://github.com" target="_blank" class="btn-project-sm" onclick="event.stopPropagation()"><i class="bi bi-github"></i> GitHub</a>
+              <a href="#" class="btn-project-sm btn-demo" onclick="event.stopPropagation()"><i class="bi bi-play-circle"></i> Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="project-card" onclick="openProjectModal(2)">
+          <div class="project-img-wrap">
+            <div class="project-placeholder project-placeholder-3">
+              <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="220" fill="#0d1b36"/>
+                <!-- CMS UI -->
+                <rect x="0" y="0" width="400" height="35" fill="#0a1528"/>
+                <rect x="15" y="10" width="60" height="14" rx="7" fill="#34d399"/>
+                <text x="25" y="20" font-size="8" fill="#000" font-family="monospace" font-weight="bold">CMS Admin</text>
+                <!-- Sidebar -->
+                <rect x="0" y="35" width="90" height="185" fill="#060d1f"/>
+                <rect x="8" y="50" width="75" height="22" rx="6" fill="#34d39920" stroke="#34d39940" stroke-width="1"/>
+                <text x="15" y="64" font-size="8" fill="#34d399" font-family="monospace">📄 Pages</text>
+                <rect x="8" y="78" width="75" height="22" rx="6" fill="transparent"/>
+                <text x="15" y="92" font-size="8" fill="#ffffff40" font-family="monospace">📝 Posts</text>
+                <rect x="8" y="106" width="75" height="22" rx="6" fill="transparent"/>
+                <text x="15" y="120" font-size="8" fill="#ffffff40" font-family="monospace">🖼 Media</text>
+                <rect x="8" y="134" width="75" height="22" rx="6" fill="transparent"/>
+                <text x="15" y="148" font-size="8" fill="#ffffff40" font-family="monospace">🔧 SEO</text>
+                <rect x="8" y="162" width="75" height="22" rx="6" fill="transparent"/>
+                <text x="15" y="176" font-size="8" fill="#ffffff40" font-family="monospace">👥 Users</text>
+                <!-- Main content editor -->
+                <rect x="98" y="42" width="295" height="170" rx="8" fill="#0f1f3d"/>
+                <rect x="108" y="52" width="140" height="8" rx="4" fill="#34d399" opacity="0.7"/>
+                <rect x="108" y="68" width="270" height="60" rx="6" fill="#1a2845"/>
+                <rect x="118" y="76" width="200" height="6" rx="3" fill="#ffffff40"/>
+                <rect x="118" y="88" width="240" height="5" rx="2.5" fill="#ffffff25"/>
+                <rect x="118" y="100" width="180" height="5" rx="2.5" fill="#ffffff20"/>
+                <rect x="118" y="112" width="220" height="5" rx="2.5" fill="#ffffff15"/>
+                <!-- Action buttons -->
+                <rect x="108" y="138" width="70" height="20" rx="5" fill="#34d399"/>
+                <text x="120" y="152" font-size="8" fill="#000" font-family="monospace" font-weight="bold">Publish</text>
+                <rect x="186" y="138" width="55" height="20" rx="5" fill="#1a2845" stroke="#34d39940" stroke-width="1"/>
+                <text x="196" y="152" font-size="8" fill="#34d399" font-family="monospace">Preview</text>
+                <!-- SEO score indicator -->
+                <rect x="108" y="168" width="270" height="36" rx="6" fill="#1a2845"/>
+                <text x="118" y="181" font-size="8" fill="#fbbf24" font-family="monospace">SEO Score:</text>
+                <rect x="180" y="173" width="180" height="8" rx="4" fill="#2a3f6f"/>
+                <rect x="180" y="173" width="140" height="8" rx="4" fill="#34d399" opacity="0.8"/>
+                <text x="118" y="196" font-size="8" fill="#ffffff30" font-family="monospace">Meta • Slug • Keywords • OG Tags</text>
+              </svg>
+            </div>
+            <div class="project-overlay">
+              <span class="project-view-btn"><i class="bi bi-eye"></i> View Details</span>
+            </div>
+            <div class="project-badge badge-green">CMS</div>
+          </div>
+          <div class="project-body">
+            <div class="project-tech-badges">
+              <span class="tech-badge badge-laravel">Laravel</span>
+              <span class="tech-badge badge-mysql">MySQL</span>
+              <span class="tech-badge badge-bootstrap">Bootstrap</span>
+            </div>
+            <h4 class="project-title">CMS Based Project</h4>
+            <p class="project-desc">Content management system allowing easy management of website content with dynamic pages, admin panel and SEO management.</p>
+            <div class="project-features">
+              <span><i class="bi bi-check2"></i> Dynamic Pages</span>
+              <span><i class="bi bi-check2"></i> Admin Panel</span>
+              <span><i class="bi bi-check2"></i> SEO Mgmt</span>
+            </div>
+            <div class="project-actions">
+              <button class="btn-project-sm" onclick="event.stopPropagation(); openProjectModal(2)"><i class="bi bi-info-circle"></i> Details</button>
+              <a href="https://github.com" target="_blank" class="btn-project-sm" onclick="event.stopPropagation()"><i class="bi bi-github"></i> GitHub</a>
+              <a href="#" class="btn-project-sm btn-demo" onclick="event.stopPropagation()"><i class="bi bi-play-circle"></i> Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECT MODAL ===================== -->
+<div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content project-modal-content">
+      <div class="modal-header project-modal-header">
+        <div>
+          <h4 class="modal-title" id="modalProjectTitle"></h4>
+          <div id="modalTechBadges" class="mt-2"></div>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body project-modal-body">
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <!-- Screenshot slider -->
+            <div class="modal-slider" id="modalSlider">
+              <div class="modal-slides" id="modalSlides"></div>
+              <button class="slider-btn slider-prev" onclick="slideModal(-1)"><i class="bi bi-chevron-left"></i></button>
+              <button class="slider-btn slider-next" onclick="slideModal(1)"><i class="bi bi-chevron-right"></i></button>
+              <div class="slider-dots" id="sliderDots"></div>
+            </div>
+            <!-- Video preview -->
+            <!-- <div class="modal-video-section mt-4">
+              <h6 class="modal-section-label"><i class="bi bi-play-circle-fill accent me-2"></i>Project Preview Video</h6>
+              <div class="video-embed-wrapper">
+                <div class="video-placeholder-modal">
+                  <div class="play-icon-big"><i class="bi bi-play-circle-fill"></i></div>
+                  <p>Project Demo Video</p>
+                  <span class="video-note">Add your YouTube/Vimeo embed URL</span>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-lg-5">
+            <div class="modal-details">
+              <h6 class="modal-section-label"><i class="bi bi-info-circle-fill accent me-2"></i>Project Overview</h6>
+              <p id="modalDescription" class="modal-desc-text"></p>
+
+              <h6 class="modal-section-label mt-4"><i class="bi bi-star-fill accent me-2"></i>Key Features</h6>
+              <ul id="modalFeatures" class="modal-features-list"></ul>
+
+              <div class="modal-cta-btns mt-4 d-flex flex-wrap gap-2">
+                <a href="https://github.com" target="_blank" class="btn btn-primary-custom btn-sm-custom">
+                  <i class="bi bi-github me-1"></i> GitHub
+                </a>
+                <!-- <a href="#" class="btn btn-hire btn-sm-custom">
+                  <i class="bi bi-arrow-up-right-circle me-1"></i> Live Demo
+                </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== GITHUB ===================== -->
+<section id="github" class="section-padding github-bg">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">Open Source</span>
+      <h2 class="section-title">GitHub <span class="accent">Profile</span></h2>
+    </div>
+    <div class="row g-4 align-items-center justify-content-center">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="github-profile-card">
+          <div class="github-card-header">
+            <div class="github-avatar-wrap">
+              <i class="bi bi-github github-avatar-icon"></i>
+            </div>
+            <div>
+              <h4 class="github-name">Safi Rehman</h4>
+              <span class="github-handle">@SafiRehman</span>
+            </div>
+          </div>
+          <p class="github-bio">Laravel Developer | Building scalable web apps & REST APIs | Open to collaboration</p>
+          <div class="github-stats-row">
+            <div class="github-stat-item">
+              <span class="github-stat-num">20+</span>
+              <span class="github-stat-label">Repositories</span>
+            </div>
+            <div class="github-stat-item">
+              <span class="github-stat-num">500+</span>
+              <span class="github-stat-label">Contributions</span>
+            </div>
+            <div class="github-stat-item">
+              <span class="github-stat-num">10+</span>
+              <span class="github-stat-label">Projects</span>
+            </div>
+          </div>
+          <div class="github-langs">
+            <span class="lang-badge"><span class="lang-dot" style="background:#f05032"></span>PHP</span>
+            <span class="lang-badge"><span class="lang-dot" style="background:#ff2d20"></span>Laravel</span>
+            <span class="lang-badge"><span class="lang-dot" style="background:#f7df1e"></span>JavaScript</span>
+            <span class="lang-badge"><span class="lang-dot" style="background:#00e5ff"></span>MySQL</span>
+          </div>
+          <a href="https://github.com" target="_blank" class="btn btn-primary-custom w-100 mt-3">
+            <i class="bi bi-github me-2"></i>Visit GitHub Profile
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="github-contribution-wrap">
+          <h6 class="contrib-title"><i class="bi bi-graph-up-arrow accent me-2"></i>Contribution Activity</h6>
+          <div class="contrib-grid" id="contribGrid"></div>
+          <div class="contrib-legend">
+            <span>Less</span>
+            <div class="legend-dots">
+              <div class="legend-dot" style="background:#0d2137"></div>
+              <div class="legend-dot" style="background:#00e5ff22"></div>
+              <div class="legend-dot" style="background:#00e5ff55"></div>
+              <div class="legend-dot" style="background:#00e5ff99"></div>
+              <div class="legend-dot" style="background:#00e5ff"></div>
+            </div>
+            <span>More</span>
+          </div>
+        </div>
+        <div class="row g-3 mt-2">
+          <div class="col-6">
+            <div class="repo-card">
+              <div class="repo-card-top">
+                <i class="bi bi-folder-fill accent"></i>
+                <span class="repo-lang"><span class="lang-dot" style="background:#ff2d20"></span>PHP</span>
+              </div>
+              <h6 class="repo-name">ecommerce-vendor</h6>
+              <p class="repo-desc">Multi-vendor ecommerce system built with Laravel</p>
+              <div class="repo-meta"><i class="bi bi-star"></i> 12 <i class="bi bi-arrow-repeat ms-2"></i> 4</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="repo-card">
+              <div class="repo-card-top">
+                <i class="bi bi-folder-fill accent"></i>
+                <span class="repo-lang"><span class="lang-dot" style="background:#ff2d20"></span>PHP</span>
+              </div>
+              <h6 class="repo-name">laravel-lms</h6>
+              <p class="repo-desc">Learning Management System with React frontend</p>
+              <div class="repo-meta"><i class="bi bi-star"></i> 8 <i class="bi bi-arrow-repeat ms-2"></i> 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="testimonials" class="section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">Social Proof</span>
+      <h2 class="section-title">What People <span class="accent">Say</span></h2>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-card">
+          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+          <p class="testimonial-text">Safi demonstrated excellent Laravel skills during his internship. His ability to build scalable REST APIs and implement authentication systems was impressive for a developer at his stage.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AM</div>
+            <div>
+              <h6 class="author-name">Ahmed Malik</h6>
+              <span class="author-role">Tech Lead – Internship Company</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card testimonial-featured">
+          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+          <p class="testimonial-text">Great work on our multi-vendor project! Safi delivered clean, well-documented Laravel code with proper database design and smooth admin panel functionality. Highly recommend.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">ZK</div>
+            <div>
+              <h6 class="author-name">Zara Khan</h6>
+              <span class="author-role">Project Manager</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card">
+          <div class="testimonial-quote"><i class="bi bi-quote"></i></div>
+          <p class="testimonial-text">Safi built our CMS-based website with excellent SEO management and content features. Professional attitude, on-time delivery and willingness to learn makes him a valuable developer.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">HR</div>
+            <div>
+              <h6 class="author-name">Hassan Raza</h6>
+              <span class="author-role">Client – Web Agency</span>
+            </div>
+          </div>
+          <div class="testimonial-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" class="section-padding contact-bg">
+  <div class="container">
+    <div class="section-header text-center mb-5" data-aos="fade-up">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Let's <span class="accent">Work Together</span></h2>
+      <p class="section-subtitle">Have a project in mind? I'd love to hear from you.</p>
+    </div>
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="contact-info-panel">
+          <h5 class="contact-info-title">Contact Information</h5>
+          <div class="contact-info-item">
+            <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <span class="contact-info-label">Email</span>
+              <a href="mailto:safirehman@email.com" class="contact-info-value">safirehman@email.com</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon whatsapp"><i class="bi bi-whatsapp"></i></div>
+            <div>
+              <span class="contact-info-label">WhatsApp</span>
+              <a href="https://wa.me/923001234567" target="_blank" class="contact-info-value">+92 300 1234567</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon github-icon"><i class="bi bi-github"></i></div>
+            <div>
+              <span class="contact-info-label">GitHub</span>
+              <a href="https://github.com" target="_blank" class="contact-info-value">github.com/SafiRehman</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon linkedin-icon"><i class="bi bi-linkedin"></i></div>
+            <div>
+              <span class="contact-info-label">LinkedIn</span>
+              <a href="https://linkedin.com" target="_blank" class="contact-info-value">linkedin.com/in/SafiRehman</a>
+            </div>
+          </div>
+          <div class="contact-availability mt-4">
+            <span class="avail-dot"></span>
+            <span>Available for freelance projects & full-time opportunities</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <div class="contact-form-card">
+          <h5 class="contact-form-title">Send a Message</h5>
+          <div class="contact-form" id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label>Your Name</label>
+                  <input type="text" class="form-input-custom" id="contactName" placeholder="John Doe" required/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group-custom">
+                  <label>Your Email</label>
+                  <input type="email" class="form-input-custom" id="contactEmail" placeholder="john@example.com" required/>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label>Subject</label>
+                  <input type="text" class="form-input-custom" id="contactSubject" placeholder="Project Inquiry"/>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group-custom">
+                  <label>Message</label>
+                  <textarea class="form-input-custom" id="contactMessage" rows="5" placeholder="Tell me about your project..."></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-primary-custom w-100" onclick="submitContactForm()">
+                  <i class="bi bi-send-fill me-2"></i>Send Message
+                </button>
+              </div>
+            </div>
+            <div id="formSuccess" class="form-success-msg d-none">
+              <i class="bi bi-check-circle-fill"></i> Message sent successfully! I'll get back to you soon.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer-section">
+  <div class="container">
+    <div class="footer-top row g-4">
+      <div class="col-lg-4">
+        <a class="navbar-brand footer-brand" href="#home">
+          <span class="brand-dot">&lt;</span>Safi<span class="brand-accent">Rehman</span><span class="brand-dot">/&gt;</span>
+        </a>
+        <p class="footer-tagline mt-2">Laravel Developer building modern web solutions. Available for freelance work worldwide.</p>
+        <div class="footer-social mt-3">
+          <a href="https://github.com" target="_blank" class="social-btn"><i class="bi bi-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="social-btn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://wa.me/923001234567" target="_blank" class="social-btn whatsapp-btn"><i class="bi bi-whatsapp"></i></a>
+          <a href="mailto:safirehman@email.com" class="social-btn"><i class="bi bi-envelope-fill"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="footer-heading">Navigation</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6 class="footer-heading">Services</h6>
+        <ul class="footer-links">
+          <li><a href="#contact">Laravel Development</a></li>
+          <li><a href="#contact">REST API Development</a></li>
+          <li><a href="#contact">CRUD Applications</a></li>
+          <li><a href="#contact">Full Stack Projects</a></li>
+          <li><a href="#contact">Authentication Systems</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="footer-heading">Quick Contact</h6>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill accent"></i> safirehman@email.com</div>
+        <div class="footer-contact-item"><i class="bi bi-whatsapp" style="color:#25D366"></i> +92 300 1234567</div>
+        <div class="footer-contact-item"><i class="bi bi-geo-alt-fill accent"></i> Pakistan</div>
+        <div class="footer-avail mt-3"><span class="avail-dot"></span> Open to Remote Work</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Made with <span class="heart">❤️</span> by <span class="accent">Safi Rehman</span> &nbsp;|&nbsp; &copy; <span id="footerYear"></span> All Rights Reserved</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
