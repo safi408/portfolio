@@ -172,7 +172,7 @@ function animateCounters() {
 }
 
 /* ============================================================
-   7. PROJECT MODAL DATA
+   7. PROJECT MODAL DATA (with real image URLs for slides)
    ============================================================ */
 const projects = [
   {
@@ -191,11 +191,12 @@ const projects = [
       'Complete Order System with status tracking',
       'Admin Panel for full platform control'
     ],
-    slides: [
-      { title: 'Dashboard View', color: '#00e5ff', icon: '🛍️', subtitle: 'Vendor Dashboard' },
-      { title: 'Product Management', color: '#7c3aed', icon: '📦', subtitle: 'Product Listing & CRUD' },
-      { title: 'Order System', color: '#34d399', icon: '🧾', subtitle: 'Order Tracking Panel' },
-      { title: 'Admin Panel', color: '#fbbf24', icon: '⚙️', subtitle: 'Full Admin Control' }
+    // REAL IMAGE URLs for slides
+    slideImages: [
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
+      'https://images.unsplash.com/photo-1556742049-0cfed2f4a5d5?w=800&h=450&fit=crop',
+      'https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=800&h=450&fit=crop',
+      'https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=800&h=450&fit=crop'
     ]
   },
   {
@@ -214,11 +215,9 @@ const projects = [
       'Video Lessons with progress saving',
       'Interactive Quiz System with scoring'
     ],
-    slides: [
-      { title: 'Student Dashboard', color: '#7c3aed', icon: '🎓', subtitle: 'Course Overview' },
-      { title: 'Video Lessons', color: '#00e5ff', icon: '📹', subtitle: 'Video Player Interface' },
-      { title: 'Quiz System', color: '#fbbf24', icon: '📝', subtitle: 'Interactive Quizzes' },
-      { title: 'Teacher Panel', color: '#34d399', icon: '👨‍🏫', subtitle: 'Content Management' }
+    slideImages: [    
+      'lms-login-page.jpg',
+      'lms-dashboard.jpg'
     ]
   },
   {
@@ -237,11 +236,11 @@ const projects = [
       'SEO Management per page (meta, OG, sitemap)',
       'Media Library with image optimization'
     ],
-    slides: [
-      { title: 'CMS Dashboard', color: '#34d399', icon: '📄', subtitle: 'Content Overview' },
-      { title: 'Page Builder', color: '#00e5ff', icon: '🔧', subtitle: 'Dynamic Page Editor' },
-      { title: 'SEO Manager', color: '#fbbf24', icon: '🔍', subtitle: 'SEO Settings Panel' },
-      { title: 'Media Library', color: '#7c3aed', icon: '🖼️', subtitle: 'File Management' }
+    slideImages: [
+      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=450&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop'
     ]
   }
 ];
@@ -252,6 +251,7 @@ let totalSlides = 0;
 function openProjectModal(index) {
   const project = projects[index];
   currentSlide = 0;
+  totalSlides = project.slideImages.length;
 
   // Set title
   document.getElementById('modalProjectTitle').textContent = project.title;
@@ -269,72 +269,17 @@ function openProjectModal(index) {
   const featuresEl = document.getElementById('modalFeatures');
   featuresEl.innerHTML = project.features.map(f => `<li>${f}</li>`).join('');
 
-  // Slides
+  // Slides with REAL IMAGES
   const slidesEl = document.getElementById('modalSlides');
-  totalSlides = project.slides.length;
-  slidesEl.innerHTML = project.slides.map((slide, i) => `
+  slidesEl.innerHTML = project.slideImages.map((imgUrl, i) => `
     <div class="modal-slide" data-index="${i}">
-      <svg viewBox="0 0 700 394" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-        <rect width="700" height="394" fill="#060d1f"/>
-        <!-- Header bar -->
-        <rect width="700" height="48" fill="#0a1528"/>
-        <rect x="16" y="16" width="16" height="16" rx="8" fill="#ff5f57"/>
-        <rect x="40" y="16" width="16" height="16" rx="8" fill="#febc2e"/>
-        <rect x="64" y="16" width="16" height="16" rx="8" fill="#28c840"/>
-        <rect x="100" y="12" width="500" height="24" rx="12" fill="#0f1f3d"/>
-        <text x="200" y="28" font-size="11" fill="#7a99c0" font-family="monospace">localhost:8000/${project.title.toLowerCase().replace(/\s+/g, '-')}</text>
-        <!-- Main content area -->
-        <rect x="0" y="48" width="160" height="346" fill="#0a1528"/>
-        <!-- Sidebar items -->
-        <rect x="10" y="68" width="140" height="28" rx="6" fill="${slide.color}22" stroke="${slide.color}44" stroke-width="1"/>
-        <text x="22" y="86" font-size="11" fill="${slide.color}" font-family="monospace">${slide.icon} ${slide.title}</text>
-        <rect x="10" y="104" width="140" height="26" rx="6" fill="transparent"/>
-        <text x="22" y="121" font-size="10" fill="#7a99c0" font-family="monospace">📊 Analytics</text>
-        <rect x="10" y="137" width="140" height="26" rx="6" fill="transparent"/>
-        <text x="22" y="154" font-size="10" fill="#7a99c0" font-family="monospace">👥 Users</text>
-        <rect x="10" y="170" width="140" height="26" rx="6" fill="transparent"/>
-        <text x="22" y="187" font-size="10" fill="#7a99c0" font-family="monospace">⚙️ Settings</text>
-        <rect x="10" y="203" width="140" height="26" rx="6" fill="transparent"/>
-        <text x="22" y="220" font-size="10" fill="#7a99c0" font-family="monospace">🚪 Logout</text>
-        <!-- Main panel -->
-        <rect x="170" y="58" width="520" height="326" rx="8" fill="#0f1f3d"/>
-        <!-- Panel title -->
-        <text x="188" y="88" font-size="18" font-weight="bold" fill="#f0f6ff" font-family="sans-serif">${slide.title}</text>
-        <text x="188" y="108" font-size="12" fill="#7a99c0" font-family="monospace">${slide.subtitle}</text>
-        <!-- Content cards -->
-        <rect x="188" y="122" width="145" height="80" rx="8" fill="#1a2845"/>
-        <rect x="188" y="122" width="145" height="20" rx="8" fill="${slide.color}22"/>
-        <text x="200" y="136" font-size="10" fill="${slide.color}" font-family="monospace">METRIC 01</text>
-        <text x="200" y="168" font-size="28" fill="#f0f6ff" font-family="sans-serif" font-weight="bold">1,284</text>
-        <text x="200" y="188" font-size="10" fill="#7a99c0" font-family="monospace">↑ 12% this month</text>
-        <rect x="343" y="122" width="145" height="80" rx="8" fill="#1a2845"/>
-        <rect x="343" y="122" width="145" height="20" rx="8" fill="#7c3aed22"/>
-        <text x="355" y="136" font-size="10" fill="#a78bfa" font-family="monospace">METRIC 02</text>
-        <text x="355" y="168" font-size="28" fill="#f0f6ff" font-family="sans-serif" font-weight="bold">856</text>
-        <text x="355" y="188" font-size="10" fill="#7a99c0" font-family="monospace">↑ 8% this month</text>
-        <rect x="498" y="122" width="172" height="80" rx="8" fill="#1a2845"/>
-        <rect x="498" y="122" width="172" height="20" rx="8" fill="#34d39922"/>
-        <text x="510" y="136" font-size="10" fill="#34d399" font-family="monospace">METRIC 03</text>
-        <text x="510" y="168" font-size="28" fill="#f0f6ff" font-family="sans-serif" font-weight="bold">$24K</text>
-        <text x="510" y="188" font-size="10" fill="#7a99c0" font-family="monospace">↑ 22% revenue</text>
-        <!-- Table -->
-        <rect x="188" y="214" width="482" height="30" rx="6" fill="#1a2845"/>
-        <text x="200" y="233" font-size="10" fill="#7a99c0" font-family="monospace">ID    Name              Status      Action</text>
-        <rect x="188" y="250" width="482" height="26" rx="4" fill="${slide.color}10"/>
-        <text x="200" y="267" font-size="10" fill="#f0f6ff" font-family="monospace">#001  Sample Entry 1    ✅ Active    Edit</text>
-        <rect x="188" y="280" width="482" height="26" rx="4" fill="transparent"/>
-        <text x="200" y="297" font-size="10" fill="#f0f6ff" font-family="monospace">#002  Sample Entry 2    ✅ Active    Edit</text>
-        <rect x="188" y="310" width="482" height="26" rx="4" fill="${slide.color}10"/>
-        <text x="200" y="327" font-size="10" fill="#f0f6ff" font-family="monospace">#003  Sample Entry 3    ⏸ Inactive  Edit</text>
-        <!-- Slide number -->
-        <text x="640" y="375" font-size="10" fill="#7a99c0" font-family="monospace">${i + 1}/${totalSlides}</text>
-      </svg>
+      <img src="${imgUrl}" alt="${project.title} - Screenshot ${i + 1}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
     </div>
   `).join('');
 
   // Dots
   const dotsEl = document.getElementById('sliderDots');
-  dotsEl.innerHTML = project.slides.map((_, i) =>
+  dotsEl.innerHTML = project.slideImages.map((_, i) =>
     `<div class="slider-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>`
   ).join('');
 
