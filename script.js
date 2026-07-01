@@ -1,412 +1,346 @@
-/* ============================================================
-   SAFI REHMAN PORTFOLIO — script.js
-   ============================================================ */
+/* =============================================================
+   SAFI REHMAN — LARAVEL BACKEND DEVELOPER PORTFOLIO
+   script.js — All interactive behaviour, vanilla JS only
+   ============================================================= */
 
-'use strict';
+document.addEventListener('DOMContentLoaded', () => {
 
-/* ============================================================
-   1. AOS INIT
-   ============================================================ */
-AOS.init({
-  duration: 800,
-  once: true,
-  easing: 'ease-out-cubic',
-  offset: 80
-});
-
-/* ============================================================
-   2. NAVBAR — scroll effect & active link
-   ============================================================ */
-const mainNav = document.getElementById('mainNav');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id]');
-
-window.addEventListener('scroll', () => {
-  // Scrolled class
-  if (window.scrollY > 50) {
-    mainNav.classList.add('scrolled');
-  } else {
-    mainNav.classList.remove('scrolled');
-  }
-
-  // Scroll-top button
-  const scrollBtn = document.getElementById('scrollTopBtn');
-  if (window.scrollY > 400) {
-    scrollBtn.classList.add('visible');
-  } else {
-    scrollBtn.classList.remove('visible');
-  }
-
-  // Active nav link
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 100;
-    if (window.scrollY >= sectionTop) {
-      current = section.getAttribute('id');
-    }
-  });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
+  /* -----------------------------------------------------------
+     1. LOADING SCREEN
+  ----------------------------------------------------------- */
+  const loader = document.getElementById('loading-screen');
+  window.addEventListener('load', () => {
+    setTimeout(() => loader && loader.classList.add('hide'), 500);
   });
 
-  // Skill bar animation on scroll
-  animateSkillBars();
+  /* -----------------------------------------------------------
+     2. STICKY NAVBAR + SHRINK ON SCROLL + SCROLL PROGRESS BAR
+  ----------------------------------------------------------- */
+  const navbar = document.getElementById('mainNavbar');
+  const progressBar = document.getElementById('scroll-progress');
+  const backToTopBtn = document.getElementById('back-to-top');
 
-  // Counter animation on scroll
-  animateCounters();
-});
-
-/* ============================================================
-   3. SMOOTH SCROLL (for nav links)
-   ============================================================ */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Close mobile nav
-      const navCollapse = document.getElementById('navMenu');
-      if (navCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navCollapse).hide();
-      }
+  function handleScrollUI() {
+    const scrollY = window.scrollY;
+    // Navbar shrink
+    if (navbar) navbar.classList.toggle('scrolled', scrollY > 60);
+    // Scroll progress bar
+    if (progressBar) {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
     }
-  });
-});
-
-/* ============================================================
-   4. TYPING ANIMATION
-   ============================================================ */
-const typedEl = document.getElementById('typed-text');
-const phrases = [
-  'Laravel Developer',
-  'PHP Developer',
-  'Learning Vue.js',
-  'Full Stack Learner'
-];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typingSpeed = 90;
-
-function typeWriter() {
-  const current = phrases[phraseIndex];
-  if (isDeleting) {
-    typedEl.textContent = current.substring(0, charIndex - 1);
-    charIndex--;
-    typingSpeed = 45;
-  } else {
-    typedEl.textContent = current.substring(0, charIndex + 1);
-    charIndex++;
-    typingSpeed = 90;
+    // Back to top visibility
+    if (backToTopBtn) backToTopBtn.classList.toggle('show', scrollY > 500);
   }
+  window.addEventListener('scroll', handleScrollUI, { passive: true });
+  handleScrollUI();
 
-  if (!isDeleting && charIndex === current.length) {
-    isDeleting = true;
-    typingSpeed = 1800; // pause before delete
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    typingSpeed = 400;
-  }
-
-  setTimeout(typeWriter, typingSpeed);
-}
-
-setTimeout(typeWriter, 600);
-
-/* ============================================================
-   5. SKILL BARS
-   ============================================================ */
-let skillsAnimated = false;
-
-function animateSkillBars() {
-  if (skillsAnimated) return;
-  const skillsSection = document.getElementById('skills');
-  if (!skillsSection) return;
-
-  const sectionTop = skillsSection.getBoundingClientRect().top;
-  if (sectionTop < window.innerHeight - 100) {
-    skillsAnimated = true;
-    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
-      const width = bar.getAttribute('data-width');
-      setTimeout(() => {
-        bar.style.width = width + '%';
-      }, 200);
+  /* -----------------------------------------------------------
+     3. BACK TO TOP BUTTON
+  ----------------------------------------------------------- */
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-}
 
-/* ============================================================
-   6. COUNTER ANIMATION
-   ============================================================ */
-let countersStarted = false;
+  /* -----------------------------------------------------------
+     4. SMOOTH SCROLL FOR ALL ANCHOR LINKS
+  ----------------------------------------------------------- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1) {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
 
-function animateCounters() {
-  if (countersStarted) return;
-  const statsSection = document.getElementById('stats');
-  if (!statsSection) return;
-
-  const sectionTop = statsSection.getBoundingClientRect().top;
-  if (sectionTop < window.innerHeight - 80) {
-    countersStarted = true;
-    document.querySelectorAll('.stat-counter').forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      const duration = 1800;
-      const step = target / (duration / 16);
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          current = target;
-          clearInterval(timer);
+          // Collapse mobile navbar after click
+          const navCollapse = document.getElementById('navbarContent');
+          if (navCollapse && navCollapse.classList.contains('show')) {
+            new bootstrap.Collapse(navCollapse).hide();
+          }
         }
-        counter.textContent = Math.floor(current);
-      }, 16);
-    });
-  }
-}
-
-/* ============================================================
-   7. PROJECT MODAL DATA (with real image URLs for slides)
-   ============================================================ */
-const projects = [
-  {
-    title: 'Ecommerce Vendor System',
-    description: 'A complete multi-vendor ecommerce platform built with Laravel and MySQL. Vendors can register, manage their products, view orders, and track their dashboard metrics. Users can browse products, add to cart, and complete purchases. An admin panel provides full control over vendors, users, and orders.',
-    technologies: [
-      { label: 'Laravel', cls: 'badge-laravel' },
-      { label: 'MySQL', cls: 'badge-mysql' },
-      { label: 'Bootstrap', cls: 'badge-bootstrap' }
-    ],
-    features: [
-      'Multi Vendor System with vendor registration & approval',
-      'Vendor Dashboard with sales analytics',
-      'Product Management with images & inventory',
-      'Secure Authentication & Role Management',
-      'Complete Order System with status tracking',
-      'Admin Panel for full platform control'
-    ],
-    // REAL IMAGE URLs for slides
-    slideImages: [
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1556742049-0cfed2f4a5d5?w=800&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=800&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=800&h=450&fit=crop'
-    ]
-  },
-  {
-    title: 'Learning Management System (LMS)',
-    description: 'A complete LMS platform featuring a React.js frontend powered by a Laravel REST API backend. Students access courses, watch video lessons, and take quizzes. Teachers manage course content and track student progress. The system includes a clean dashboard for each role with real-time updates.',
-    technologies: [
-      { label: 'Laravel', cls: 'badge-laravel' },
-      { label: 'React JS', cls: 'badge-react' },
-      { label: 'MySQL', cls: 'badge-mysql' }
-    ],
-    features: [
-      'Course Management with categories and enrollment',
-      'Student Dashboard with progress tracking',
-      'Teacher Panel for content creation',
-      'Secure JWT Authentication',
-      'Video Lessons with progress saving',
-      'Interactive Quiz System with scoring'
-    ],
-    slideImages: [    
-      'lms-login-page.jpg',
-      'lms-dashboard.jpg'
-    ]
-  },
-  {
-    title: 'CMS Based Project',
-    description: 'A powerful content management system built with Laravel that allows website administrators to manage all content dynamically without touching code. Features include dynamic page builder, media management, SEO optimization per page, and a role-based admin panel for multiple editors.',
-    technologies: [
-      { label: 'Laravel', cls: 'badge-laravel' },
-      { label: 'MySQL', cls: 'badge-mysql' },
-      { label: 'Bootstrap', cls: 'badge-bootstrap' }
-    ],
-    features: [
-      'Dynamic Pages with drag-and-drop builder',
-      'Comprehensive Admin Panel',
-      'Full Content Management system',
-      'Secure Authentication with roles',
-      'SEO Management per page (meta, OG, sitemap)',
-      'Media Library with image optimization'
-    ],
-    slideImages: [
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop'
-    ]
-  }
-];
-
-let currentSlide = 0;
-let totalSlides = 0;
-
-function openProjectModal(index) {
-  const project = projects[index];
-  currentSlide = 0;
-  totalSlides = project.slideImages.length;
-
-  // Set title
-  document.getElementById('modalProjectTitle').textContent = project.title;
-
-  // Tech badges
-  const badgesEl = document.getElementById('modalTechBadges');
-  badgesEl.innerHTML = project.technologies.map(t =>
-    `<span class="tech-badge ${t.cls}">${t.label}</span>`
-  ).join(' ');
-
-  // Description
-  document.getElementById('modalDescription').textContent = project.description;
-
-  // Features
-  const featuresEl = document.getElementById('modalFeatures');
-  featuresEl.innerHTML = project.features.map(f => `<li>${f}</li>`).join('');
-
-  // Slides with REAL IMAGES
-  const slidesEl = document.getElementById('modalSlides');
-  slidesEl.innerHTML = project.slideImages.map((imgUrl, i) => `
-    <div class="modal-slide" data-index="${i}">
-      <img src="${imgUrl}" alt="${project.title} - Screenshot ${i + 1}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" />
-    </div>
-  `).join('');
-
-  // Dots
-  const dotsEl = document.getElementById('sliderDots');
-  dotsEl.innerHTML = project.slideImages.map((_, i) =>
-    `<div class="slider-dot ${i === 0 ? 'active' : ''}" onclick="goToSlide(${i})"></div>`
-  ).join('');
-
-  updateSlider();
-  new bootstrap.Modal(document.getElementById('projectModal')).show();
-}
-
-function updateSlider() {
-  document.getElementById('modalSlides').style.transform = `translateX(-${currentSlide * 100}%)`;
-  document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === currentSlide);
-  });
-}
-
-function slideModal(dir) {
-  currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
-  updateSlider();
-}
-
-function goToSlide(index) {
-  currentSlide = index;
-  updateSlider();
-}
-
-/* ============================================================
-   8. CONTRIBUTION GRID
-   ============================================================ */
-function buildContribGrid() {
-  const grid = document.getElementById('contribGrid');
-  if (!grid) return;
-
-  const levels = [0, 0, 0, 1, 1, 2, 2, 3, 3, 4]; // weighted random
-  const totalCells = 52 * 7;
-
-  for (let i = 0; i < totalCells; i++) {
-    const cell = document.createElement('div');
-    cell.className = 'contrib-cell';
-    const rand = Math.random();
-    if (rand > 0.55) {
-      const level = levels[Math.floor(Math.random() * levels.length)];
-      if (level > 0) cell.classList.add('l' + level);
-    }
-    grid.appendChild(cell);
-  }
-}
-
-buildContribGrid();
-
-/* ============================================================
-   9. CONTACT FORM
-   ============================================================ */
-function submitContactForm() {
-  const name = document.getElementById('contactName').value.trim();
-  const email = document.getElementById('contactEmail').value.trim();
-  const message = document.getElementById('contactMessage').value.trim();
-
-  if (!name || !email || !message) {
-    // Shake empty fields
-    [document.getElementById('contactName'),
-     document.getElementById('contactEmail'),
-     document.getElementById('contactMessage')].forEach(field => {
-      if (!field.value.trim()) {
-        field.style.borderColor = '#ff4757';
-        field.style.animation = 'shake 0.4s ease';
-        setTimeout(() => {
-          field.style.borderColor = '';
-          field.style.animation = '';
-        }, 600);
       }
     });
-    return;
+  });
+
+  /* -----------------------------------------------------------
+     5. ACTIVE NAV LINK HIGHLIGHT ON SCROLL
+  ----------------------------------------------------------- */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link-custom');
+
+  function highlightActiveNav() {
+    let currentId = '';
+    const scrollPos = window.scrollY + 130;
+    sections.forEach(section => {
+      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        currentId = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + currentId);
+    });
+  }
+  window.addEventListener('scroll', highlightActiveNav, { passive: true });
+  highlightActiveNav();
+
+  /* -----------------------------------------------------------
+     6. TYPING ANIMATION (HERO ROLES)
+  ----------------------------------------------------------- */
+  const typedEl = document.getElementById('typed-text');
+  const roles = ['Laravel Backend Developer', 'PHP Developer', 'REST API Developer', 'Backend Engineer'];
+  let roleIndex = 0, charIndex = 0, isDeleting = false;
+
+  function typeLoop() {
+    if (!typedEl) return;
+    const current = roles[roleIndex];
+    if (isDeleting) {
+      charIndex--;
+      typedEl.textContent = current.substring(0, charIndex);
+    } else {
+      charIndex++;
+      typedEl.textContent = current.substring(0, charIndex);
+    }
+
+    let speed = isDeleting ? 45 : 90;
+
+    if (!isDeleting && charIndex === current.length) {
+      speed = 1600; // pause at full word
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      speed = 350;
+    }
+    setTimeout(typeLoop, speed);
+  }
+  typeLoop();
+
+  /* -----------------------------------------------------------
+     7. SCROLL REVEAL ANIMATION (IntersectionObserver)
+  ----------------------------------------------------------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* -----------------------------------------------------------
+     8. ANIMATED COUNTERS (STATS)
+  ----------------------------------------------------------- */
+  const counters = document.querySelectorAll('.stat-number[data-count]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const duration = 1400;
+    const start = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target + suffix;
+    }
+    requestAnimationFrame(step);
   }
 
-  // Show success
-  const successEl = document.getElementById('formSuccess');
-  successEl.classList.remove('d-none');
-  document.getElementById('contactName').value = '';
-  document.getElementById('contactEmail').value = '';
-  document.getElementById('contactSubject').value = '';
-  document.getElementById('contactMessage').value = '';
+  /* -----------------------------------------------------------
+     9. SKILL PROGRESS BAR ANIMATION ON SCROLL
+  ----------------------------------------------------------- */
+  const skillFills = document.querySelectorAll('.skill-fill');
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        fill.style.width = fill.getAttribute('data-width') + '%';
+        skillObserver.unobserve(fill);
+      }
+    });
+  }, { threshold: 0.4 });
+  skillFills.forEach(fill => skillObserver.observe(fill));
 
-  setTimeout(() => {
-    successEl.classList.add('d-none');
-  }, 5000);
-}
+  /* -----------------------------------------------------------
+     10. DARK MODE TOGGLE
+  ----------------------------------------------------------- */
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
 
-/* ============================================================
-   10. SCROLL TO TOP
-   ============================================================ */
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* ============================================================
-   11. FOOTER YEAR
-   ============================================================ */
-document.getElementById('footerYear').textContent = new Date().getFullYear();
-
-/* ============================================================
-   12. SHAKE ANIMATION (CSS injected)
-   ============================================================ */
-const shakeStyle = document.createElement('style');
-shakeStyle.textContent = `
-  @keyframes shake {
-    0%,100%{transform:translateX(0)}
-    20%{transform:translateX(-6px)}
-    40%{transform:translateX(6px)}
-    60%{transform:translateX(-4px)}
-    80%{transform:translateX(4px)}
+  function setTheme(isLight) {
+    document.body.classList.toggle('light-mode', isLight);
+    if (themeIcon) {
+      themeIcon.classList.toggle('bi-moon-stars-fill', !isLight);
+      themeIcon.classList.toggle('bi-sun-fill', isLight);
+    }
   }
-`;
-document.head.appendChild(shakeStyle);
 
-/* ============================================================
-   13. NAVBAR CLOSE ON OUTSIDE CLICK (mobile)
-   ============================================================ */
-document.addEventListener('click', function(e) {
-  const navMenu = document.getElementById('navMenu');
-  const toggler = document.querySelector('.navbar-toggler');
-  if (navMenu.classList.contains('show') &&
-      !navMenu.contains(e.target) &&
-      !toggler.contains(e.target)) {
-    new bootstrap.Collapse(navMenu).hide();
+  let savedTheme = 'dark';
+  try { savedTheme = window.__portfolioTheme || 'dark'; } catch (e) {}
+  setTheme(savedTheme === 'light');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isLight = !document.body.classList.contains('light-mode');
+      setTheme(isLight);
+      window.__portfolioTheme = isLight ? 'light' : 'dark';
+    });
   }
+
+  /* -----------------------------------------------------------
+     11. BUTTON RIPPLE EFFECT
+  ----------------------------------------------------------- */
+  document.querySelectorAll('.btn-custom').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      const rect = this.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.classList.add('ripple');
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 650);
+    });
+  });
+
+  /* -----------------------------------------------------------
+     12. CONTACT FORM VALIDATION + SUCCESS MESSAGE
+  ----------------------------------------------------------- */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const fields = {
+      name: { el: document.getElementById('cf-name'), err: document.getElementById('err-name') },
+      email: { el: document.getElementById('cf-email'), err: document.getElementById('err-email') },
+      phone: { el: document.getElementById('cf-phone'), err: document.getElementById('err-phone') },
+      subject: { el: document.getElementById('cf-subject'), err: document.getElementById('err-subject') },
+      message: { el: document.getElementById('cf-message'), err: document.getElementById('err-message') }
+    };
+
+    function validateField(key) {
+      const { el, err } = fields[key];
+      if (!el) return true;
+      let valid = true, msg = '';
+      const value = el.value.trim();
+
+      if (key === 'name') {
+        if (value.length < 2) { valid = false; msg = 'Please enter your full name.'; }
+      }
+      if (key === 'email') {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!re.test(value)) { valid = false; msg = 'Please enter a valid email address.'; }
+      }
+      if (key === 'phone') {
+        const re = /^[0-9+\-\s()]{7,}$/;
+        if (!re.test(value)) { valid = false; msg = 'Please enter a valid phone number.'; }
+      }
+      if (key === 'subject') {
+        if (value.length < 3) { valid = false; msg = 'Please enter a subject.'; }
+      }
+      if (key === 'message') {
+        if (value.length < 10) { valid = false; msg = 'Message should be at least 10 characters.'; }
+      }
+
+      el.classList.toggle('is-invalid', !valid);
+      if (err) err.textContent = valid ? '' : msg;
+      return valid;
+    }
+
+    Object.keys(fields).forEach(key => {
+      const el = fields[key].el;
+      if (el) el.addEventListener('blur', () => validateField(key));
+      if (el) el.addEventListener('input', () => { if (el.classList.contains('is-invalid')) validateField(key); });
+    });
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let allValid = true;
+      Object.keys(fields).forEach(key => {
+        if (!validateField(key)) allValid = false;
+      });
+
+      const successBox = document.getElementById('form-success');
+      if (allValid) {
+        contactForm.reset();
+        if (successBox) {
+          successBox.classList.add('show');
+          setTimeout(() => successBox.classList.remove('show'), 5000);
+        }
+      }
+    });
+  }
+
+  /* -----------------------------------------------------------
+     13. NEWSLETTER FORM (FOOTER) — SIMPLE VALIDATION
+  ----------------------------------------------------------- */
+  const newsletterForm = document.getElementById('newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const input = this.querySelector('input[type="email"]');
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (input && re.test(input.value.trim())) {
+        input.value = '';
+        input.placeholder = 'Subscribed! Thank you.';
+        setTimeout(() => { input.placeholder = 'Your email address'; }, 3000);
+      }
+    });
+  }
+
+  /* -----------------------------------------------------------
+     14. PROJECT MODAL DATA POPULATION
+  ----------------------------------------------------------- */
+  const projectModal = document.getElementById('projectDetailsModal');
+  if (projectModal) {
+    projectModal.addEventListener('show.bs.modal', (event) => {
+      const trigger = event.relatedTarget;
+      if (!trigger) return;
+      const title = trigger.getAttribute('data-title');
+      const desc = trigger.getAttribute('data-desc');
+      const img = trigger.getAttribute('data-img');
+      const tech = trigger.getAttribute('data-tech');
+
+      projectModal.querySelector('.modal-title').textContent = title || '';
+      projectModal.querySelector('.modal-desc').textContent = desc || '';
+      projectModal.querySelector('.modal-img').setAttribute('src', img || '');
+
+      const techWrap = projectModal.querySelector('.modal-tech');
+      techWrap.innerHTML = '';
+      if (tech) {
+        tech.split(',').forEach(t => {
+          const span = document.createElement('span');
+          span.className = 'tech-badge';
+          span.textContent = t.trim();
+          techWrap.appendChild(span);
+        });
+      }
+    });
+  }
+
+  /* -----------------------------------------------------------
+     15. CURRENT YEAR IN FOOTER
+  ----------------------------------------------------------- */
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 });
-
-/* ============================================================
-   14. INITIAL TRIGGER (in case user loads scrolled)
-   ============================================================ */
-window.dispatchEvent(new Event('scroll'));
