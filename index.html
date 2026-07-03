@@ -266,7 +266,7 @@
       transition: width .1s linear;
     }
 
-    /* ===== NAVIGATION ===== */
+    /* ===== NAVIGATION - FIXED STICKY ===== */
     .navbar-custom {
       position: fixed;
       top: 0;
@@ -274,19 +274,22 @@
       right: 0;
       z-index: 1000;
       padding: 1.35rem 0;
-      transition: all .35s;
+      transition: all .35s ease;
       background: transparent;
     }
 
     .navbar-custom.scrolled {
       padding: .75rem 0;
-      background: rgba(15, 23, 42, .75);
+      background: rgba(15, 23, 42, .95);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--color-border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     body.light-mode .navbar-custom.scrolled {
-      background: rgba(248, 250, 252, .85);
+      background: rgba(248, 250, 252, .95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
     }
 
     .brand-logo {
@@ -364,6 +367,7 @@
         padding: 1.25rem 1.5rem 1.5rem;
         max-height: calc(100vh - 6rem);
         overflow-y: auto;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
       }
 
       .nav-link-custom {
@@ -378,7 +382,7 @@
       }
     }
 
-    /* ===== HERO - FIXED SCROLL ISSUE ===== */
+    /* ===== HERO ===== */
     #hero {
       min-height: 85vh;
       display: flex;
@@ -441,7 +445,49 @@
     .hero-desc {
       color: var(--color-muted);
       max-width: 540px;
-      margin-bottom: 2.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== HERO SERVICE BADGES ===== */
+    .hero-service-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-service-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      background: var(--color-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--color-border);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      transition: all 0.3s ease;
+    }
+
+    .hero-service-badge i {
+      color: var(--color-accent);
+      font-size: 1rem;
+    }
+
+    .hero-service-badge:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    }
+
+    @media (max-width: 576px) {
+      .hero-service-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.9rem;
+      }
     }
 
     .hero-btns {
@@ -661,10 +707,6 @@
       }
     }
 
-    /* ===== REST OF THE STYLES SAME AS BEFORE ===== */
-    /* ... (all other styles remain same) ... */
-
-    /* For brevity, keeping rest of CSS same, just showing key changes */
     /* ===== ABOUT ===== */
     .about-img-wrap {
       position: relative;
@@ -792,20 +834,29 @@
       height: 100%;
     }
 
-    /* ===== SERVICES ===== */
-    .service-card {
-      padding: 2.1rem 1.8rem;
-      height: 100%;
-      transition: transform .35s, box-shadow .35s, border-color .35s;
+    /* ===== NEW SERVICES SECTION ===== */
+    .services-wrapper {
+      padding: 1rem 0;
     }
 
-    .service-card:hover {
+    .service-card-detailed {
+      padding: 2rem 1.8rem;
+      height: 100%;
+      transition: transform .35s, box-shadow .35s, border-color .35s;
+      background: var(--color-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .service-card-detailed:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-soft);
       border-color: var(--color-primary);
     }
 
-    .service-icon {
+    .service-card-detailed .service-icon {
       width: 58px;
       height: 58px;
       border-radius: 16px;
@@ -819,19 +870,73 @@
       transition: transform .35s;
     }
 
-    .service-card:hover .service-icon {
+    .service-card-detailed:hover .service-icon {
       transform: rotate(-8deg) scale(1.06);
     }
 
-    .service-card h3 {
+    .service-card-detailed h3 {
       font-size: 1.15rem;
       margin-bottom: .6rem;
       font-weight: 600;
     }
 
-    .service-card p {
+    .service-card-detailed p {
       color: var(--color-muted);
-      font-size: .92rem;
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    /* Service Features Grid */
+    .service-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+      padding: 2rem;
+      background: var(--color-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+
+    .service-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .service-feature-item:hover {
+      background: rgba(99, 102, 241, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .service-feature-item i {
+      color: var(--color-accent);
+      font-size: 1.2rem;
+    }
+
+    .service-feature-item span {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    @media (max-width: 768px) {
+      .service-features-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service-features-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ===== PROJECTS ===== */
@@ -1600,9 +1705,16 @@
             <div class="hero-role-wrap" aria-live="polite">
               <span id="typed-text"></span><span id="typed-cursor">|</span>
             </div>
-            <p class="hero-desc">I build secure, scalable and high-performance web applications using Laravel, PHP,
-              MySQL and modern web technologies. I enjoy solving real business problems through clean and efficient
-              code.</p>
+            <p class="hero-desc">I help businesses grow online by building fast, secure and SEO-friendly Websites and web applications using laravel and modern technologies Clean code. Scalable solutions. On Time delivery.</p>
+
+            <!-- ===== HERO SERVICE BADGES ===== -->
+            <div class="hero-service-badges">
+              <span class="hero-service-badge"><i class="bi bi-building"></i> Business Websites</span>
+              <span class="hero-service-badge"><i class="bi bi-plug"></i> REST APIs</span>
+              <span class="hero-service-badge"><i class="bi bi-speedometer2"></i> Admin Panels</span>
+              <span class="hero-service-badge"><i class="bi bi-cart"></i> E-Commerce</span>
+            </div>
+
             <div class="hero-btns">
               <a href="#contact" class="btn-custom btn-primary-grad"><i class="bi bi-stars"></i> Hire Me</a>
               <a href="assets/Safi-Rehman-CV.pdf" download="Safi-Rehman-CV.pdf" class="btn-custom btn-outline-glass"><i
@@ -1828,93 +1940,130 @@
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
+  <!-- ===== NEW SERVICES SECTION ===== -->
   <section id="services">
     <div class="container">
-      <div class="text-center mx-auto reveal" style="max-width:600px;">
+      <div class="text-center mx-auto reveal" style="max-width:700px;">
         <p class="eyebrow justify-content-center">Services</p>
-        <h2 class="section-title">What I can build for you</h2>
-        <p class="section-subtitle mx-auto">End-to-end backend services for products that need to work reliably at
-          scale.</p>
+        <h2 class="section-title">What I Can Build For You</h2>
+        <p class="section-subtitle mx-auto">End-to-end web solutions that help your business grow online with modern, secure and scalable applications.</p>
       </div>
-      <div class="row g-4 mt-2">
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal">
-            <div class="service-icon"><i class="bi bi-hexagon"></i></div>
-            <h3>Laravel Development</h3>
-            <p>Robust Laravel applications built on clean architecture and maintainable code.</p>
+
+      <div class="services-wrapper">
+        <div class="row g-4">
+
+          <!-- Service 1: Business Website -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal">
+              <div class="service-icon"><i class="bi bi-building"></i></div>
+              <h3>Business Website Development</h3>
+              <p>Modern, responsive and SEO-friendly business websites that help you build credibility and generate more leads.</p>
+            </div>
+          </div>
+
+          <!-- Service 2: LMS Development -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal reveal-delay-1">
+              <div class="service-icon"><i class="bi bi-mortarboard"></i></div>
+              <h3>LMS Development</h3>
+              <p>Learning Management Systems with courses, students, teachers, quizzes, assignments and certificates.</p>
+            </div>
+          </div>
+
+          <!-- Service 3: CMS Development -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal reveal-delay-2">
+              <div class="service-icon"><i class="bi bi-file-earmark-text"></i></div>
+              <h3>CMS Development</h3>
+              <p>Dynamic content management systems for blogs, company websites, news portals and business websites.</p>
+            </div>
+          </div>
+
+          <!-- Service 4: Custom Web Apps -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal">
+              <div class="service-icon"><i class="bi bi-code-square"></i></div>
+              <h3>Custom Web Application Development</h3>
+              <p>Tailor-made web applications built to automate business processes and solve real-world challenges.</p>
+            </div>
+          </div>
+
+          <!-- Service 5: Admin Dashboard -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal reveal-delay-1">
+              <div class="service-icon"><i class="bi bi-speedometer2"></i></div>
+              <h3>Admin Dashboard Development</h3>
+              <p>Secure admin dashboards with analytics, user management, reports and insights for efficient business operations.</p>
+            </div>
+          </div>
+
+          <!-- Service 6: Database Design -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal reveal-delay-2">
+              <div class="service-icon"><i class="bi bi-database"></i></div>
+              <h3>Database Design &amp; Optimization</h3>
+              <p>Design scalable MySQL databases with optimized queries, efficient relationships and high performance.</p>
+            </div>
+          </div>
+
+          <!-- Service 7: REST API -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal">
+              <div class="service-icon"><i class="bi bi-plug"></i></div>
+              <h3>REST API Development &amp; Integration</h3>
+              <p>Develop secure REST APIs and integrate payment gateways, SMS, email and third-party services seamlessly.</p>
+            </div>
+          </div>
+
+          <!-- Service 8: Authentication -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal reveal-delay-1">
+              <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
+              <h3>Authentication &amp; Security</h3>
+              <p>Implement secure login systems, role-based access control, email verification and best security practices.</p>
+            </div>
+          </div>
+
+          <!-- Service 9: E-Commerce -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal reveal-delay-2">
+              <div class="service-icon"><i class="bi bi-cart"></i></div>
+              <h3>E-Commerce Solutions</h3>
+              <p>Professional online stores with product management, secure checkout, order management and full customer support.</p>
+            </div>
+          </div>
+
+          <!-- Service 10: Maintenance -->
+          <div class="col-md-6 col-lg-4">
+            <div class="service-card-detailed reveal">
+              <div class="service-icon"><i class="bi bi-wrench-adjustable"></i></div>
+              <h3>Website Maintenance &amp; Support</h3>
+              <p>Ongoing maintenance, bug fixing, performance optimization, feature updates and security improvements.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Service Features Grid -->
+        <div class="service-features-grid reveal reveal-delay-1">
+          <div class="service-feature-item">
+            <i class="bi bi-shield-check"></i>
+            <span>Secure &amp; Reliable</span>
+          </div>
+          <div class="service-feature-item">
+            <i class="bi bi-rocket-takeoff"></i>
+            <span>Fast Performance</span>
+          </div>
+          <div class="service-feature-item">
+            <i class="bi bi-phone"></i>
+            <span>Fully Responsive</span>
+          </div>
+          <div class="service-feature-item">
+            <i class="bi bi-headset"></i>
+            <span>Dedicated Support</span>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-1">
-            <div class="service-icon"><i class="bi bi-plug"></i></div>
-            <h3>REST API Development</h3>
-            <p>Well-documented, secure APIs that connect your frontend, mobile app or third parties.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-2">
-            <div class="service-icon"><i class="bi bi-speedometer2"></i></div>
-            <h3>Admin Dashboard</h3>
-            <p>Custom admin panels for managing users, content and data with ease.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal">
-            <div class="service-icon"><i class="bi bi-shield-lock"></i></div>
-            <h3>Authentication</h3>
-            <p>Secure login, roles and permissions systems tailored to your application.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-1">
-            <div class="service-icon"><i class="bi bi-window-stack"></i></div>
-            <h3>Custom Web Applications</h3>
-            <p>Purpose-built web applications designed around your exact business process.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-2">
-            <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
-            <h3>CRUD Applications</h3>
-            <p>Reliable create, read, update and delete workflows for any data-driven system.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal">
-            <div class="service-icon"><i class="bi bi-database"></i></div>
-            <h3>Database Design</h3>
-            <p>Normalized, efficient schemas that scale with your application's data needs.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-1">
-            <div class="service-icon"><i class="bi bi-bug"></i></div>
-            <h3>Bug Fixing</h3>
-            <p>Fast, thorough debugging to keep your application stable and running smoothly.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-2">
-            <div class="service-icon"><i class="bi bi-wrench-adjustable"></i></div>
-            <h3>Website Maintenance</h3>
-            <p>Ongoing updates, monitoring and support to keep your site secure and current.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal">
-            <div class="service-icon"><i class="bi bi-arrow-left-right"></i></div>
-            <h3>API Integration</h3>
-            <p>Connecting your app to payment gateways, SMS, email and other third-party services.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-card glass reveal reveal-delay-1">
-            <div class="service-icon"><i class="bi bi-cloud-arrow-up"></i></div>
-            <h3>Deployment</h3>
-            <p>Smooth, production-ready deployment of your Laravel application to live servers.</p>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
