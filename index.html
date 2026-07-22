@@ -881,6 +881,107 @@
       height: 100%;
     }
 
+    /* ===== LANGUAGE SLIDER ===== */
+    .lang-slider-section {
+      background: var(--color-bg-alt);
+      overflow: hidden;
+      padding-block: 3rem 2rem;
+    }
+
+    .lang-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 1rem 0;
+    }
+
+    .lang-slider-track {
+      display: flex;
+      animation: slideLanguages 25s linear infinite;
+      width: max-content;
+    }
+
+    .lang-slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes slideLanguages {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 1.5rem;
+      margin-right: 1.2rem;
+      background: var(--color-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--color-border);
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .lang-item:hover {
+      transform: scale(1.05);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.2);
+    }
+
+    .lang-item .lang-icon-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .lang-item .lang-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+
+    .lang-item .lang-level {
+      font-size: 0.65rem;
+      color: var(--color-accent);
+      background: rgba(6, 182, 212, 0.15);
+      padding: 0.15rem 0.6rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .lang-item {
+        padding: 0.4rem 1rem;
+        margin-right: 0.8rem;
+        gap: 0.5rem;
+      }
+      .lang-item .lang-icon-circle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+      }
+      .lang-item .lang-name {
+        font-size: 0.8rem;
+      }
+      .lang-item .lang-level {
+        font-size: 0.55rem;
+        padding: 0.1rem 0.4rem;
+      }
+    }
+
     /* ===== SERVICES ===== */
     .services-wrapper {
       padding: 1rem 0;
@@ -1852,7 +1953,8 @@
       <div class="row align-items-center gy-5 mt-4">
         <div class="col-lg-5">
           <div class="about-img-wrap reveal">
-            <img src="images/profile.jpg" alt="Safi Rehman working on Laravel backend development">
+            <!-- ✅ CHANGED: Replaced images/profile.jpg with SVG developer illustration -->
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Crect width='500' height='400' fill='%231e293b' rx='20'/%3E%3Crect x='60' y='60' width='380' height='280' rx='16' fill='%232d3748'/%3E%3Crect x='80' y='80' width='340' height='30' rx='6' fill='%233b4253'/%3E%3Crect x='95' y='88' width='100' height='14' rx='4' fill='%236366f1'/%3E%3Crect x='210' y='88' width='60' height='14' rx='4' fill='%2306b6d4'/%3E%3Crect x='285' y='88' width='40' height='14' rx='4' fill='%238b5cf6'/%3E%3Crect x='80' y='125' width='340' height='8' rx='4' fill='%234b5563'/%3E%3Crect x='80' y='143' width='280' height='8' rx='4' fill='%234b5563'/%3E%3Crect x='80' y='161' width='200' height='8' rx='4' fill='%234b5563'/%3E%3Crect x='80' y='190' width='100' height='20' rx='6' fill='%236366f1'/%3E%3Crect x='195' y='190' width='80' height='20' rx='6' fill='%2306b6d4'/%3E%3Crect x='290' y='190' width='70' height='20' rx='6' fill='%238b5cf6'/%3E%3Crect x='80' y='230' width='340' height='90' rx='10' fill='%233b4253'/%3E%3Ccircle cx='150' cy='275' r='25' fill='%236366f1'/%3E%3Cpath d='M140 275l8 8 18-18' stroke='%23fff' stroke-width='4' fill='none'/%3E%3Crect x='195' y='255' width='120' height='10' rx='4' fill='%236366f1'/%3E%3Crect x='195' y='275' width='180' height='8' rx='4' fill='%234b5563'/%3E%3Crect x='195' y='293' width='150' height='8' rx='4' fill='%234b5563'/%3E%3Crect x='80' y='340' width='340' height='18' rx='6' fill='%233b4253'/%3E%3Crect x='95' y='346' width='60' height='6' rx='3' fill='%236366f1'/%3E%3Crect x='170' y='346' width='80' height='6' rx='3' fill='%2306b6d4'/%3E%3Crect x='265' y='346' width='50' height='6' rx='3' fill='%238b5cf6'/%3E%3Crect x='330' y='346' width='70' height='6' rx='3' fill='%23f59e0b'/%3E%3C/svg%3E" alt="Safi Rehman working on Laravel backend development">
             <div class="about-exp-badge glass">
               <div class="num">1+</div>
               <div class="lbl">Year<br>Experience</div>
@@ -1881,7 +1983,7 @@
                 <div class="info-icon"><i class="bi bi-envelope"></i></div>
                 <div>
                   <div class="lbl">Email</div>
-                  <div class="val">safi.rehman@example.com</div>
+                  <div class="val">safirehman311$@gmail.com</div>
                 </div>
               </div>
             </div>
@@ -1890,7 +1992,7 @@
                 <div class="info-icon"><i class="bi bi-telephone"></i></div>
                 <div>
                   <div class="lbl">Phone</div>
-                  <div class="val">+92 300 0000000</div>
+                  <div class="val">+92 370 4587980</div>
                 </div>
               </div>
             </div>
@@ -1904,7 +2006,7 @@
               </div>
             </div>
           </div>
-          <a href="assets/Safi-Rehman-CV.pdf" download="Safi-Rehman-CV.pdf" class="btn-custom btn-primary-grad reveal">
+          <a href="new resume.pdf" download="new resume.pdf" target="_blank" class="btn-custom btn-primary-grad reveal">
             <i class="bi bi-download"></i> Download Resume
           </a>
         </div>
@@ -1950,6 +2052,143 @@
             <div class="skill-item"><div class="skill-top"><span>Livewire (Bonus)</span><span class="pct">70%</span></div><div class="skill-track"><div class="skill-fill" data-width="70"></div></div></div>
             <div class="skill-item"><div class="skill-top"><span>VS Code</span><span class="pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-width="95"></div></div></div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LANGUAGE SLIDER SECTION (NEW) ===== -->
+  <section class="lang-slider-section">
+    <div class="container">
+      <div class="text-center mx-auto reveal" style="max-width:600px;">
+        <p class="eyebrow justify-content-center">Languages & Technologies</p>
+        <h2 class="section-title">Tools I Speak Fluently</h2>
+        <p class="section-subtitle mx-auto">A showcase of programming languages, frameworks and technologies I work with daily.</p>
+      </div>
+    </div>
+    <div class="lang-slider-container reveal">
+      <div class="lang-slider-track">
+        <!-- First Set -->
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #777BB4;"><i class="bi bi-code-slash"></i></div>
+          <span class="lang-name">PHP</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #F05340;"><i class="bi bi-lightning-fill"></i></div>
+          <span class="lang-name">Laravel</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #4479A1;"><i class="bi bi-database"></i></div>
+          <span class="lang-name">MySQL</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #E34F26;"><i class="bi bi-filetype-html"></i></div>
+          <span class="lang-name">HTML5</span>
+          <span class="lang-level">Expert</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #1572B6;"><i class="bi bi-filetype-css"></i></div>
+          <span class="lang-name">CSS3</span>
+          <span class="lang-level">Expert</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #7952B3;"><i class="bi bi-bootstrap-fill"></i></div>
+          <span class="lang-name">Bootstrap</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #F7DF1E; color: #000;"><i class="bi bi-filetype-js"></i></div>
+          <span class="lang-name">JavaScript</span>
+          <span class="lang-level">Intermediate</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #F05032;"><i class="bi bi-git"></i></div>
+          <span class="lang-name">Git</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #885630;"><i class="bi bi-box"></i></div>
+          <span class="lang-name">Composer</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #FF6C37;"><i class="bi bi-send"></i></div>
+          <span class="lang-name">Postman</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #4E56A6;"><i class="bi bi-bolt"></i></div>
+          <span class="lang-name">Livewire</span>
+          <span class="lang-level">Intermediate</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #009688;"><i class="bi bi-link-45deg"></i></div>
+          <span class="lang-name">REST APIs</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <!-- Duplicate for seamless looping -->
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #777BB4;"><i class="bi bi-code-slash"></i></div>
+          <span class="lang-name">PHP</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #F05340;"><i class="bi bi-lightning-fill"></i></div>
+          <span class="lang-name">Laravel</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #4479A1;"><i class="bi bi-database"></i></div>
+          <span class="lang-name">MySQL</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #E34F26;"><i class="bi bi-filetype-html"></i></div>
+          <span class="lang-name">HTML5</span>
+          <span class="lang-level">Expert</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #1572B6;"><i class="bi bi-filetype-css"></i></div>
+          <span class="lang-name">CSS3</span>
+          <span class="lang-level">Expert</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #7952B3;"><i class="bi bi-bootstrap-fill"></i></div>
+          <span class="lang-name">Bootstrap</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #F7DF1E; color: #000;"><i class="bi bi-filetype-js"></i></div>
+          <span class="lang-name">JavaScript</span>
+          <span class="lang-level">Intermediate</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #F05032;"><i class="bi bi-git"></i></div>
+          <span class="lang-name">Git</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #885630;"><i class="bi bi-box"></i></div>
+          <span class="lang-name">Composer</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #FF6C37;"><i class="bi bi-send"></i></div>
+          <span class="lang-name">Postman</span>
+          <span class="lang-level">Advanced</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #4E56A6;"><i class="bi bi-bolt"></i></div>
+          <span class="lang-name">Livewire</span>
+          <span class="lang-level">Intermediate</span>
+        </div>
+        <div class="lang-item">
+          <div class="lang-icon-circle" style="background: #009688;"><i class="bi bi-link-45deg"></i></div>
+          <span class="lang-name">REST APIs</span>
+          <span class="lang-level">Advanced</span>
         </div>
       </div>
     </div>
@@ -2032,7 +2271,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="project-card glass reveal">
             <div class="project-img-wrap">
-              <img src="school-management.jpg" alt="School Management System dashboard">
+              <!-- ✅ CHANGED: School Management SVG -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Crect x='40' y='50' width='320' height='200' rx='16' fill='%232d3748'/%3E%3Crect x='60' y='70' width='60' height='60' rx='10' fill='%236366f1'/%3E%3Crect x='140' y='70' width='180' height='20' rx='4' fill='%23e2e8f0'/%3E%3Crect x='140' y='100' width='140' height='14' rx='4' fill='%234b5563'/%3E%3Crect x='140' y='122' width='120' height='14' rx='4' fill='%234b5563'/%3E%3Crect x='60' y='150' width='280' height='80' rx='8' fill='%233b4253'/%3E%3Crect x='80' y='165' width='60' height='20' rx='6' fill='%236366f1'/%3E%3Crect x='155' y='165' width='80' height='20' rx='6' fill='%2306b6d4'/%3E%3Crect x='250' y='165' width='70' height='20' rx='6' fill='%238b5cf6'/%3E%3Ctext x='90' y='180' fill='%23fff' font-size='11' font-family='sans-serif'%3EStudents%3C/text%3E%3Ctext x='165' y='180' fill='%23fff' font-size='11' font-family='sans-serif'%3ETeachers%3C/text%3E%3Ctext x='260' y='180' fill='%23fff' font-size='11' font-family='sans-serif'%3EClasses%3C/text%3E%3C/svg%3E" alt="School Management System dashboard">
               <div class="project-overlay">
                 <div class="tech-badges"><span class="tech-badge">Laravel</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span></div>
               </div>
@@ -2048,8 +2288,8 @@
                   data-bs-target="#projectDetailsModal" data-title="School Management System"
                   data-desc="A comprehensive School Management System built with Laravel featuring student registration, attendance tracking, exam management, results, fees collection, teachers management, classes, and admin dashboard."
                   data-tech="Laravel, PHP, MySQL, Bootstrap, JavaScript"
-                  data-features="Student Registration & Management, Attendance Tracking, Exam & Results Management, Fees Collection, Teachers Management, Classes & Sections, Admin Dashboard, Reports"
-                  data-screens="school-management.jpg,school-students.jpg,school-exams.jpg">
+                  data-features="Admin Dashboard, Class Managements, Subjects Managements  ,Students Management, Teachers Managements, Attendance Managements, Timetable Managements,Add Notes"
+                  data-screens="school-login.jpg,admin-school.jpg,school-add-class.jpg,school-all-classes.jpg,school-students-list.jpg,school-student-detail.jpg,school subjects-list.jpg,school add timetable.jpg,school show timetable.jpg,school attendence.jpg">
                   <i class="bi bi-eye"></i> Details
                 </button>
               </div>
@@ -2061,7 +2301,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="project-card glass reveal reveal-delay-1">
             <div class="project-img-wrap">
-              <img src="lms.jpg" alt="Learning Management System dashboard">
+              <!-- ✅ CHANGED: LMS SVG -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Crect x='40' y='60' width='320' height='180' rx='12' fill='%232d3748'/%3E%3Crect x='60' y='80' width='120' height='20' rx='4' fill='%236366f1'/%3E%3Crect x='60' y='110' width='180' height='12' rx='4' fill='%234b5563'/%3E%3Crect x='60' y='130' width='150' height='12' rx='4' fill='%234b5563'/%3E%3Ccircle cx='300' cy='130' r='30' fill='%238b5cf6'/%3E%3Cpath d='M290 130l10 10 25-25' stroke='%23fff' stroke-width='4' fill='none'/%3E%3Crect x='60' y='170' width='100' height='30' rx='6' fill='%236366f1'/%3E%3Ctext x='75' y='190' fill='%23fff' font-size='12' font-family='sans-serif'%3ELMS%3C/text%3E%3Crect x='180' y='170' width='100' height='30' rx='6' fill='%2306b6d4'/%3E%3Ctext x='195' y='190' fill='%23fff' font-size='12' font-family='sans-serif'%3ECourses%3C/text%3E%3C/svg%3E" alt="Learning Management System dashboard">
               <div class="project-overlay">
                 <div class="tech-badges"><span class="tech-badge">Laravel</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span></div>
               </div>
@@ -2078,7 +2319,7 @@
                   data-desc="A complete Learning Management System built using Laravel with course management, students, teachers, quizzes, assignments, certificates, authentication and admin dashboard."
                   data-tech="Laravel, PHP, MySQL, Bootstrap, JavaScript"
                   data-features="Course Management, Student & Teacher Dashboards, Quizzes & Assignments, Certificate Generation, Admin Panel, Authentication & Roles"
-                  data-screens="lms.jpg,lms-login-page.jpg">
+                  data-screens="lms.jpg,lms-login-page.jpg,lms-dashboard.jpg,course-lms.jpg,all-courses.jpg,gallery.jpg">
                   <i class="bi bi-eye"></i> Details
                 </button>
               </div>
@@ -2090,7 +2331,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="project-card glass reveal reveal-delay-2">
             <div class="project-img-wrap">
-              <img src="inventory.jpg" alt="Inventory Management System dashboard">
+              <!-- ✅ CHANGED: Inventory SVG -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Crect x='40' y='50' width='320' height='200' rx='16' fill='%232d3748'/%3E%3Crect x='60' y='70' width='280' height='40' rx='8' fill='%233b4253'/%3E%3Crect x='80' y='82' width='100' height='16' rx='4' fill='%236366f1'/%3E%3Crect x='200' y='82' width='60' height='16' rx='4' fill='%2306b6d4'/%3E%3Crect x='60' y='130' width='130' height='90' rx='8' fill='%233b4253'/%3E%3Crect x='80' y='145' width='40' height='40' rx='6' fill='%236366f1'/%3E%3Crect x='135' y='145' width='40' height='40' rx='6' fill='%238b5cf6'/%3E%3Crect x='210' y='130' width='130' height='90' rx='8' fill='%233b4253'/%3E%3Crect x='230' y='145' width='40' height='40' rx='6' fill='%2306b6d4'/%3E%3Crect x='285' y='145' width='40' height='40' rx='6' fill='%236366f1'/%3E%3Ctext x='90' y='170' fill='%23fff' font-size='10' font-family='sans-serif'%3EStock%3C/text%3E%3Ctext x='145' y='170' fill='%23fff' font-size='10' font-family='sans-serif'%3ESales%3C/text%3E%3Ctext x='240' y='170' fill='%23fff' font-size='10' font-family='sans-serif'%3EPO%3C/text%3E%3Ctext x='295' y='170' fill='%23fff' font-size='10' font-family='sans-serif'%3EReport%3C/text%3E%3C/svg%3E" alt="Inventory Management System dashboard">
               <div class="project-overlay">
                 <div class="tech-badges"><span class="tech-badge">Laravel</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span></div>
               </div>
@@ -2119,7 +2361,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="project-card glass reveal">
             <div class="project-img-wrap">
-              <img src="multivendor.jpg" alt="Multi Vendor E-Commerce dashboard">
+              <!-- ✅ CHANGED: Multi Vendor SVG -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Crect x='30' y='40' width='340' height='220' rx='16' fill='%232d3748'/%3E%3Crect x='50' y='60' width='80' height='80' rx='10' fill='%236366f1'/%3E%3Crect x='150' y='60' width='180' height='16' rx='4' fill='%23e2e8f0'/%3E%3Crect x='150' y='85' width='140' height='12' rx='4' fill='%234b5563'/%3E%3Crect x='150' y='105' width='120' height='12' rx='4' fill='%234b5563'/%3E%3Crect x='50' y='155' width='300' height='85' rx='8' fill='%233b4253'/%3E%3Crect x='70' y='170' width='60' height='20' rx='6' fill='%236366f1'/%3E%3Crect x='145' y='170' width='70' height='20' rx='6' fill='%2306b6d4'/%3E%3Crect x='230' y='170' width='70' height='20' rx='6' fill='%238b5cf6'/%3E%3Crect x='315' y='170' width='20' height='20' rx='4' fill='%23f59e0b'/%3E%3Ctext x='80' y='184' fill='%23fff' font-size='10' font-family='sans-serif'%3EProducts%3C/text%3E%3Ctext x='155' y='184' fill='%23fff' font-size='10' font-family='sans-serif'%3EVendors%3C/text%3E%3Ctext x='240' y='184' fill='%23fff' font-size='10' font-family='sans-serif'%3EOrders%3C/text%3E%3C/svg%3E" alt="Multi Vendor E-Commerce dashboard">
               <div class="project-overlay">
                 <div class="tech-badges"><span class="tech-badge">Laravel</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span></div>
               </div>
@@ -2134,9 +2377,9 @@
                 <button type="button" class="btn-custom btn-accent-grad btn-sm-custom" data-bs-toggle="modal"
                   data-bs-target="#projectDetailsModal" data-title="Multi Vendor E-Commerce System"
                   data-desc="A complete Multi Vendor Marketplace with vendor dashboard, product management, shopping cart, checkout, order management, reports and admin dashboard."
-                  data-tech="Laravel, PHP, MySQL, Bootstrap, JavaScript"
-                  data-features="Vendor Dashboard, Product Management, Shopping Cart, Checkout, Order Management, Sales Reports, Admin Panel"
-                  data-screens="multivendor.jpg,multivendor-dashboard.jpg,multivendor-products.jpg">
+                  data-tech=" HTML, CSS, Bootstrap, JavaScript Laravel, MySQL"
+                  data-features="Vendor Dashboard, Product Management, Categories Management, Child & Sub Categories Management, Brands Management, Order Management, Vendors Management, Admin Panel, Users Management, Roles & Permission, CMS Management, Admin pannel Settings"
+                  data-screens="multivendor.jpg,mvs1.jpg,mvs2.jpg,mvs3.jpg,mvs4.jpg,mvs5.jpg,mvs6.jpg,mvs7.jpg,mvs8.jpg,mvs9.jpg,mvs10.jpg,mvs11.jpg,mvs12.jpg,mvs13.jpg,mvs14.jpg,mvs15.jpg,mvs16.jpg,mvs17.jpg,mvs18.jpg">
                   <i class="bi bi-eye"></i> Details
                 </button>
               </div>
@@ -2148,7 +2391,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="project-card glass reveal reveal-delay-1">
             <div class="project-img-wrap">
-              <img src="cms.jpg" alt="CMS Based Website dashboard">
+              <!-- ✅ CHANGED: CMS SVG -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Crect x='40' y='50' width='320' height='200' rx='16' fill='%232d3748'/%3E%3Crect x='60' y='70' width='280' height='30' rx='6' fill='%233b4253'/%3E%3Crect x='75' y='82' width='70' height='12' rx='4' fill='%236366f1'/%3E%3Crect x='155' y='82' width='60' height='12' rx='4' fill='%2306b6d4'/%3E%3Crect x='225' y='82' width='50' height='12' rx='4' fill='%238b5cf6'/%3E%3Crect x='60' y='115' width='130' height='55' rx='8' fill='%233b4253'/%3E%3Crect x='205' y='115' width='135' height='55' rx='8' fill='%233b4253'/%3E%3Crect x='60' y='185' width='280' height='45' rx='8' fill='%233b4253'/%3E%3Crect x='80' y='198' width='60' height='18' rx='6' fill='%236366f1'/%3E%3Crect x='155' y='198' width='60' height='18' rx='6' fill='%2306b6d4'/%3E%3Crect x='230' y='198' width='60' height='18' rx='6' fill='%238b5cf6'/%3E%3Ctext x='90' y='211' fill='%23fff' font-size='10' font-family='sans-serif'%3EPages%3C/text%3E%3Ctext x='165' y='211' fill='%23fff' font-size='10' font-family='sans-serif'%3EBlog%3C/text%3E%3Ctext x='240' y='211' fill='%23fff' font-size='10' font-family='sans-serif'%3EGallery%3C/text%3E%3C/svg%3E" alt="CMS Based Website dashboard">
               <div class="project-overlay">
                 <div class="tech-badges"><span class="tech-badge">Laravel</span><span class="tech-badge">PHP</span><span class="tech-badge">MySQL</span></div>
               </div>
@@ -2165,7 +2409,7 @@
                   data-desc="A dynamic Content Management System with pages, blogs, gallery, SEO, contact management and admin dashboard."
                   data-tech="Laravel, PHP, MySQL, Bootstrap, JavaScript"
                   data-features="Page Management, Blog System, Gallery, SEO Tools, Contact Management, Admin Dashboard, User Roles"
-                  data-screens="cms.jpg,cms-pages.jpg,cms-blog.jpg">
+                  data-screens="cms.jpg,fsd1.jpg,fsd2.jpg,fsd3.jpg,fsd4.jpg,fsd5.jpg,fsd6.jpg,fsd7.jpg,fsd8.jpg,fsd9.jpg,fsd10.jpg,fsd11.jpg,fsd12.jpg">
                   <i class="bi bi-eye"></i> Details
                 </button>
               </div>
@@ -2177,7 +2421,8 @@
         <div class="col-lg-4 col-md-6">
           <div class="project-card glass reveal reveal-delay-2">
             <div class="project-img-wrap">
-              <img src="perfume-website.jpg" alt="Perfume Brand Website">
+              <!-- ✅ CHANGED: Perfume SVG -->
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231e293b'/%3E%3Ccircle cx='200' cy='150' r='80' fill='none' stroke='%236366f1' stroke-width='4'/%3E%3Ccircle cx='200' cy='150' r='55' fill='none' stroke='%238b5cf6' stroke-width='3'/%3E%3Ccircle cx='200' cy='150' r='30' fill='%23e2e8f0'/%3E%3Ccircle cx='200' cy='150' r='15' fill='%236366f1'/%3E%3Cpath d='M200 70v20M200 210v20M130 150h20M250 150h20' stroke='%2306b6d4' stroke-width='3'/%3E%3Crect x='120' y='240' width='160' height='30' rx='8' fill='%232d3748'/%3E%3Ctext x='155' y='260' fill='%236366f1' font-size='14' font-weight='bold' font-family='sans-serif'%3EPERFUME%3C/text%3E%3Crect x='60' y='30' width='60' height='20' rx='6' fill='%236366f1'/%3E%3Ctext x='75' y='44' fill='%23fff' font-size='10' font-family='sans-serif'%3ELuxury%3C/text%3E%3C/svg%3E" alt="Perfume Brand Website">
               <div class="project-overlay">
                 <div class="tech-badges"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">Bootstrap</span></div>
               </div>
@@ -2194,7 +2439,7 @@
                   data-desc="A modern, responsive brand website built with HTML, CSS, Bootstrap and JavaScript showcasing products with an elegant design."
                   data-tech="HTML5, CSS3, Bootstrap, JavaScript"
                   data-features="Responsive Design, Product Showcase, Brand Story, Contact Form, Modern UI/UX"
-                  data-screens="perfume-website.jpg,perfume-products.jpg">
+                  data-screens="vellums dark mode.jpg,vellums hero section.jpg,vellums product detail.jpg,vellums story.jpg">
                   <i class="bi bi-eye"></i> Details
                 </button>
               </div>
@@ -2302,7 +2547,7 @@
                 </div>
                 <div class="col-md-6">
                   <label class="form-label-custom" for="cf-phone">Phone</label>
-                  <input type="tel" id="cf-phone" name="phone" class="form-control-custom" placeholder="+92 300 0000000"
+                  <input type="tel" id="cf-phone" name="phone" class="form-control-custom" placeholder="+92 370 4587980"
                     required>
                   <div class="error-msg" id="err-phone"></div>
                 </div>
